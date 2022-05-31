@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import { Form, Formik, Field as FormikField } from 'formik'
 import * as R from 'ramda'
-import { useState, React } from 'react'
+import { useState, React, useRef } from 'react'
 
 import ErrorMessage from 'src/components/ErrorMessage'
 import PromptWhenDirty from 'src/components/PromptWhenDirty'
@@ -132,14 +132,15 @@ const ReadOnlyField = ({ field, value, ...props }) => {
 
 const EditableCard = ({
   fields,
-  save,
-  authorize,
+  save = () => {},
+  cancel = () => {},
+  authorize = () => {},
   hasImage,
-  reject,
+  reject = () => {},
   state,
   title,
   titleIcon,
-  children,
+  children = () => {},
   validationSchema,
   initialValues,
   deleteEditedData,
@@ -148,6 +149,8 @@ const EditableCard = ({
   editable
 }) => {
   const classes = useStyles()
+
+  const formRef = useRef()
 
   const [editing, setEditing] = useState(false)
   const [input, setInput] = useState(null)
@@ -187,8 +190,9 @@ const EditableCard = ({
               </div>
             )}
           </div>
-          {children}
+          {children(formRef.current?.values ?? {})}
           <Formik
+            innerRef={formRef}
             validateOnBlur={false}
             validateOnChange={false}
             enableReinitialize
@@ -359,6 +363,7 @@ const EditableCard = ({
                             color="secondary"
                             Icon={CancelReversedIcon}
                             InverseIcon={CancelReversedIcon}
+                            onClick={() => cancel()}
                             type="reset">
                             Cancel
                           </ActionButton>
