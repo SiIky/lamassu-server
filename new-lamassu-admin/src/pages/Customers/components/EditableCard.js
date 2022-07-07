@@ -145,7 +145,8 @@ const EditableCard = ({
   deleteEditedData,
   retrieveAdditionalData,
   hasAdditionalData = true,
-  editable
+  editable,
+  checkAgainstSanctions
 }) => {
   const classes = useStyles()
 
@@ -271,6 +272,16 @@ const EditableCard = ({
                             InverseIcon={DataReversedIcon}
                             onClick={() => retrieveAdditionalData()}>
                             Retrieve API data
+                          </ActionButton>
+                        )}
+                        {checkAgainstSanctions && (
+                          <ActionButton
+                            color="primary"
+                            type="button"
+                            Icon={DataIcon}
+                            InverseIcon={DataReversedIcon}
+                            onClick={() => checkAgainstSanctions()}>
+                            Check against OFAC sanction list
                           </ActionButton>
                         )}
                       </div>
