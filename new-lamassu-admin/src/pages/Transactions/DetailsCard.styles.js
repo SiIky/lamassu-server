@@ -137,5 +137,9 @@ export default {
   },
   swept: {
     width: 250
+  },
+  errorCopy: {
+    lineBreak: 'normal',
+    maxWidth: 180
   }
 }
