@@ -105,7 +105,7 @@ const GET_TRANSACTIONS = gql`
       deviceId
       fiat
       fee
-      cashInFee
+      fixedFee
       fiatCode
       cryptoAtoms
       cryptoCode
