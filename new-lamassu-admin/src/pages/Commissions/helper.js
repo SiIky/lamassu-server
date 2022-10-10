@@ -237,6 +237,7 @@ const mainFields = currency => [
     name: 'cashOutFixedFee',
     display: 'Fixed fee',
     width: 169,
+    size: 'lg',
     doubleHeader: 'Cash-out only',
     textAlign: 'center',
     editingAlign: 'right',
@@ -595,12 +596,12 @@ const getListCommissionsFields = (getData, currency, defaults) => {
       name: 'cashOutFixedFee',
       display: 'Fixed fee',
       width: 140,
+      input: NumberInput,
       doubleHeader: 'Cash-out only',
       textAlign: 'center',
       editingAlign: 'right',
-      input: NumberInput,
       suffix: currency,
-      bold: bold,
+      textStyle: obj => getTextStyle(obj),
       inputProps: {
         decimalPlaces: 2
       }
