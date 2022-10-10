@@ -91,7 +91,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
     },
     {
       name: 'cryptoCurrencies',
-      width: 280,
+      width: 145,
       size: 'sm',
       view: displayCodeArray(cryptoData),
       input: Autocomplete,
@@ -108,7 +108,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
       header: cashInHeader,
       name: 'cashIn',
       display: 'Cash-in',
-      width: 130,
+      width: 123,
       input: NumberInput,
       textAlign: 'right',
       suffix: '%',
@@ -121,7 +121,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
       header: cashOutHeader,
       name: 'cashOut',
       display: 'Cash-out',
-      width: 130,
+      width: 127,
       input: NumberInput,
       textAlign: 'right',
       suffix: '%',
@@ -133,7 +133,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
     {
       name: 'fixedFee',
       display: 'Fixed fee',
-      width: 144,
+      width: 126,
       input: NumberInput,
       doubleHeader: 'Cash-in only',
       textAlign: 'right',
@@ -146,7 +146,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
     {
       name: 'minimumTx',
       display: 'Minimum Tx',
-      width: 169,
+      width: 140,
       doubleHeader: 'Cash-in only',
       textAlign: 'center',
       editingAlign: 'right',
@@ -160,7 +160,7 @@ const getOverridesFields = (getData, currency, auxElements) => {
     {
       name: 'cashOutFixedFee',
       display: 'Fixed fee',
-      width: 144,
+      width: 134,
       doubleHeader: 'Cash-out only',
       textAlign: 'center',
       editingAlign: 'right',
