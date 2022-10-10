@@ -533,7 +533,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
     {
       name: 'cryptoCurrencies',
       display: 'Crypto Currency',
-      width: 255,
+      width: 150,
       view: R.prop(0),
       size: 'sm',
       editable: false
@@ -542,7 +542,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
       header: cashInHeader,
       name: 'cashIn',
       display: 'Cash-in',
-      width: 130,
+      width: 120,
       input: NumberInput,
       textAlign: 'right',
       suffix: '%',
@@ -555,7 +555,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
       header: cashOutHeader,
       name: 'cashOut',
       display: 'Cash-out',
-      width: 140,
+      width: 126,
       input: NumberInput,
       textAlign: 'right',
       greenText: true,
@@ -568,7 +568,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
     {
       name: 'fixedFee',
       display: 'Fixed fee',
-      width: 144,
+      width: 140,
       input: NumberInput,
       doubleHeader: 'Cash-in only',
       textAlign: 'right',
@@ -581,7 +581,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
     {
       name: 'minimumTx',
       display: 'Minimum Tx',
-      width: 144,
+      width: 140,
       input: NumberInput,
       doubleHeader: 'Cash-in only',
       textAlign: 'right',
@@ -594,7 +594,7 @@ const getListCommissionsFields = (getData, currency, defaults) => {
     {
       name: 'cashOutFixedFee',
       display: 'Fixed fee',
-      width: 144,
+      width: 140,
       doubleHeader: 'Cash-out only',
       textAlign: 'center',
       editingAlign: 'right',
