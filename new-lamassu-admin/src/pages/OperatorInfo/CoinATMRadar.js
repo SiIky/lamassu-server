@@ -3,11 +3,13 @@ import { makeStyles } from '@material-ui/core/styles'
 import gql from 'graphql-tag'
 import React, { memo } from 'react'
 
-import { HoverableTooltip } from 'src/components/Tooltip'
+import { HelpTooltip } from 'src/components/Tooltip'
 import { BooleanPropertiesTable } from 'src/components/booleanPropertiesTable'
 import { Switch } from 'src/components/inputs'
 import { H4, P, Label2 } from 'src/components/typography'
 import { fromNamespace, toNamespace, namespaces } from 'src/utils/config'
+
+import { SupportLinkButton } from '../../components/buttons'
 
 import { global } from './OperatorInfo.styles'
 
@@ -66,7 +68,7 @@ const CoinATMRadar = memo(({ wizard }) => {
       <div>
         <div className={classes.header}>
           <H4>Coin ATM Radar share settings</H4>
-          <HoverableTooltip width={304}>
+          <HelpTooltip width={320}>
             <P>
               For details on configuring this panel, please read the relevant
               knowledgebase article{' '}
@@ -78,7 +80,12 @@ const CoinATMRadar = memo(({ wizard }) => {
               </a>
               .
             </P>
-          </HoverableTooltip>
+            <SupportLinkButton
+              link="https://support.lamassu.is/hc/en-us/articles/360023720472-Coin-ATM-Radar"
+              label="Lamassu Support Article"
+              bottomSpace="1"
+            />
+          </HelpTooltip>
         </div>
         <Row
           title={'Share information?'}
