@@ -204,7 +204,7 @@ const CashCassettes = () => {
     !dataLoading && (
       <>
         <TitleSection
-          title="Cash Boxes & Cassettes"
+          title="Cash boxes & cassettes"
           buttons={[
             {
               text: 'Cash box history',

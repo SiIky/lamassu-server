@@ -103,7 +103,7 @@ const Services = () => {
 
   return (
     <div className={classes.wrapper}>
-      <TitleSection title="3rd Party Services" />
+      <TitleSection title="3rd Party services" />
       <Grid container spacing={4}>
         {R.values(schemas).map(schema => (
           <Grid item key={schema.code}>
