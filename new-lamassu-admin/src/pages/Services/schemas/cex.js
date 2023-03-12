@@ -18,6 +18,13 @@ export default {
       long: true
     },
     {
+      code: 'uid',
+      display: 'User ID',
+      component: TextInputFormik,
+      face: true,
+      long: true
+    },
+    {
       code: 'privateKey',
       display: 'Private Key',
       component: SecretInputFormik
@@ -28,6 +35,9 @@ export default {
       apiKey: Yup.string('The API key must be a string')
         .max(100, 'The API key is too long')
         .required('The API key is required'),
+      uid: Yup.string('The User ID must be a string')
+        .max(100, 'The User ID is too long')
+        .required('The User ID is required'),
       privateKey: Yup.string('The private key must be a string')
         .max(100, 'The private key is too long')
         .test(secretTest(account?.privateKey, 'private key'))
