@@ -73,7 +73,8 @@ const CustomerData = ({
   authorizeCustomRequest,
   updateCustomEntry,
   retrieveAdditionalDataDialog,
-  setRetrieve
+  setRetrieve,
+  checkAgainstSanctions
 }) => {
   const classes = useStyles()
   const [listView, setListView] = useState(false)
@@ -174,6 +175,12 @@ const CustomerData = ({
           idCardData: R.merge(idData, formatDates(values))
         }),
       validationSchema: customerDataSchemas.idCardData,
+      checkAgainstSanctions: () =>
+        checkAgainstSanctions({
+          variables: {
+            customerId: R.path(['id'])(customer)
+          }
+        }),
       initialValues: initialValues.idCardData,
       isAvailable: !R.isNil(idData),
       editable: true
@@ -463,7 +470,8 @@ const CustomerData = ({
       initialValues,
       hasImage,
       hasAdditionalData,
-      editable
+      editable,
+      checkAgainstSanctions
     },
     idx
   ) => {
@@ -485,6 +493,7 @@ const CustomerData = ({
         cancel={cancel}
         deleteEditedData={deleteEditedData}
         retrieveAdditionalData={retrieveAdditionalData}
+        checkAgainstSanctions={checkAgainstSanctions}
         editable={editable}></EditableCard>
     )
   }
