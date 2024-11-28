@@ -245,7 +245,7 @@ const getSchema = locale => {
       .max(percentMax)
       .required(),
     fixedFee: Yup.number()
-      .label('Fixed Fee')
+      .label('Fixed fee')
       .min(0)
       .max(highestBill)
       .required(),
@@ -326,7 +326,7 @@ const getOverridesSchema = (values, rawData, locale) => {
           return true
         }
       })
-      .label('Crypto Currencies')
+      .label('Crypto currencies')
       .required()
       .min(1),
     cashIn: Yup.number()
@@ -340,7 +340,7 @@ const getOverridesSchema = (values, rawData, locale) => {
       .max(percentMax)
       .required(),
     fixedFee: Yup.number()
-      .label('Fixed Fee')
+      .label('Fixed fee')
       .min(0)
       .max(highestBill)
       .required(),
@@ -437,7 +437,7 @@ const getListCommissionsSchema = locale => {
       .label('Machine')
       .required(),
     cryptoCurrencies: Yup.array()
-      .label('Crypto Currency')
+      .label('Crypto currency')
       .required()
       .min(1),
     cashIn: Yup.number()
@@ -451,7 +451,7 @@ const getListCommissionsSchema = locale => {
       .max(percentMax)
       .required(),
     fixedFee: Yup.number()
-      .label('Fixed Fee')
+      .label('Fixed fee')
       .min(0)
       .max(highestBill)
       .required(),

@@ -136,7 +136,7 @@ const ContactInfo = ({ wizard }) => {
   const fields = [
     {
       name: 'name',
-      label: 'Full name',
+      label: 'Company name',
       value: info.name ?? '',
       component: TextInput
     },
@@ -160,7 +160,7 @@ const ContactInfo = ({ wizard }) => {
     },
     {
       name: 'companyNumber',
-      label: 'Company number',
+      label: 'Company registration number',
       value: info.companyNumber ?? '',
       component: TextInput
     }

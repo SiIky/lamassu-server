@@ -26,12 +26,12 @@ export default {
     },
     {
       code: 'clientKey',
-      display: 'Client Key',
+      display: 'Client key',
       component: TextInputFormik
     },
     {
       code: 'clientSecret',
-      display: 'Client Secret',
+      display: 'Client secret',
       component: SecretInputFormik
     }
   ],
