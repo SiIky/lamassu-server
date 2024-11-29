@@ -1,7 +1,6 @@
 import { useMutation, useLazyQuery } from '@apollo/react-hooks'
 import { makeStyles } from '@material-ui/core/styles'
 import { startAssertion } from '@simplewebauthn/browser'
-import base64 from 'base-64'
 import { Field, Form, Formik } from 'formik'
 import gql from 'graphql-tag'
 import React, { useContext } from 'react'
@@ -84,11 +83,6 @@ const LoginState = ({ state, dispatch, strategy }) => {
       variables: {
         username,
         password
-      },
-      context: {
-        headers: {
-          'Pazuz-Operator-Identifier': base64.encode(username)
-        }
       }
     }
     const { data: loginResponse } = await login(options)

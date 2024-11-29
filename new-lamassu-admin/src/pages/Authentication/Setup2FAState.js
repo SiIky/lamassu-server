@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useLazyQuery } from '@apollo/react-hooks'
 import { makeStyles } from '@material-ui/core/styles'
-import base64 from 'base-64'
 import { Form, Formik } from 'formik'
 import gql from 'graphql-tag'
 import QRCode from 'qrcode.react'
@@ -71,11 +70,6 @@ const Setup2FAState = ({ state, dispatch }) => {
 
   const queryOptions = {
     variables: { username: state.clientField, password: state.passwordField },
-    context: {
-      headers: {
-        'Pazuz-Operator-Identifier': base64.encode(state.clientField)
-      }
-    },
     onCompleted: ({ get2FASecret }) => {
       setSecret(get2FASecret.secret)
       setOtpauth(get2FASecret.otpauth)
@@ -88,11 +82,6 @@ const Setup2FAState = ({ state, dispatch }) => {
       password: state.passwordField,
       rememberMe: state.rememberMeField,
       codeConfirmation: twoFAConfirmation
-    },
-    context: {
-      headers: {
-        'Pazuz-Operator-Identifier': base64.encode(state.clientField)
-      }
     }
   }
 
@@ -107,14 +96,7 @@ const Setup2FAState = ({ state, dispatch }) => {
 
   const [setup2FA, { error: mutationError }] = useMutation(SETUP_2FA, {
     onCompleted: ({ setup2FA: success }) => {
-      const options = {
-        context: {
-          headers: {
-            'Pazuz-Operator-Identifier': base64.encode(state.clientField)
-          }
-        }
-      }
-      success ? getUserData(options) : setInvalidToken(true)
+      success ? getUserData() : setInvalidToken(true)
     }
   })
 

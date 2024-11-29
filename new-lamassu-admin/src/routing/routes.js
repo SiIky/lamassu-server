@@ -23,7 +23,6 @@ import Wizard from 'src/pages/Wizard'
 import PrivateRoute from './PrivateRoute'
 import PublicRoute from './PublicRoute'
 import getLamassuRoutes from './lamassu.routes'
-import getPazuzRoutes from './pazuz.routes'
 
 const useStyles = makeStyles({
   wrapper: {
@@ -34,19 +33,7 @@ const useStyles = makeStyles({
   }
 })
 
-const getTree = () => {
-  const buildTarget = process.env.REACT_APP_BUILD_TARGET
-
-  if (buildTarget === 'LAMASSU') {
-    return getLamassuRoutes()
-  }
-
-  if (buildTarget === 'PAZUZ') {
-    return getPazuzRoutes()
-  }
-}
-
-const tree = getTree()
+const tree = getLamassuRoutes()
 
 const map = R.map(R.when(R.has('children'), R.prop('children')))
 const mappedRoutes = R.compose(R.flatten, map)(tree)

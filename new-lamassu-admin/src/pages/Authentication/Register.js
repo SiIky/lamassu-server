@@ -90,16 +90,10 @@ const Register = () => {
   const classes = useStyles()
   const history = useHistory()
   const token = QueryParams().get('t')
-  const identifier = QueryParams().get('id') ?? null
 
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const queryOptions = {
-    context: {
-      headers: {
-        'Pazuz-Operator-Identifier': identifier
-      }
-    },
     variables: { token: token },
     onCompleted: ({ validateRegisterLink: info }) => {
       if (!info) {

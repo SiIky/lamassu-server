@@ -12,19 +12,9 @@ import AppContext from 'src/AppContext'
 const URI =
   process.env.NODE_ENV === 'development' ? 'https://localhost:8070' : ''
 
-const ALT_URI =
-  process.env.NODE_ENV === 'development'
-    ? 'https://localhost:4001'
-    : `https://${window.location.hostname}:4001`
-
 const uploadLink = createUploadLink({
   credentials: 'include',
   uri: `${URI}/graphql`
-})
-
-const uploadLinkALT = createUploadLink({
-  credentials: 'include',
-  uri: `${ALT_URI}/graphql`
 })
 
 const getClient = (history, location, getUserData, setUserData, setRole) =>
@@ -58,11 +48,7 @@ const getClient = (history, location, getUserData, setUserData, setRole) =>
           return response
         })
       }),
-      ApolloLink.split(
-        operation => operation.getContext().clientName === 'pazuz',
-        uploadLinkALT,
-        uploadLink
-      )
+      uploadLink
     ]),
     cache: new InMemoryCache(),
     defaultOptions: {

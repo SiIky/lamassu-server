@@ -1,6 +1,5 @@
 import { useMutation, useLazyQuery } from '@apollo/react-hooks'
 import { makeStyles } from '@material-ui/core/styles'
-import base64 from 'base-64'
 import { Form, Formik } from 'formik'
 import gql from 'graphql-tag'
 import React, { useContext, useState } from 'react'
@@ -59,14 +58,7 @@ const Input2FAState = ({ state, dispatch }) => {
   const [input2FA, { error: mutationError }] = useMutation(INPUT_2FA, {
     onCompleted: ({ input2FA: success }) => {
       if (success) {
-        const options = {
-          context: {
-            headers: {
-              'Pazuz-Operator-Identifier': base64.encode(state.clientField)
-            }
-          }
-        }
-        return getUserData(options)
+        return getUserData()
       }
       return setInvalidToken(true)
     }
@@ -94,11 +86,6 @@ const Input2FAState = ({ state, dispatch }) => {
         password: state.passwordField,
         code: state.twoFAField,
         rememberMe: state.rememberMeField
-      },
-      context: {
-        headers: {
-          'Pazuz-Operator-Identifier': base64.encode(state.clientField)
-        }
       }
     }
 
