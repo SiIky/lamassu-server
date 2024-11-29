@@ -147,7 +147,7 @@ const Wallet = ({ name: SCREEN_KEY }) => {
                 knowledgebase article:
               </P>
               <SupportLinkButton
-                link="https://support.lamassu.is/hc/en-us/articles/360000725832-Wallets-Exchange-Linkage-and-Volatility"
+                link="https://support.lamassu.is/hc/en-us/sections/115000920192-Wallets"
                 label="Wallets, Exchange Linkage, and Volatility"
                 bottomSpace="1"
               />
