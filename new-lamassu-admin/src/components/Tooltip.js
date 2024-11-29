@@ -93,7 +93,9 @@ const HoverableTooltip = memo(({ parentElements, children, width }) => {
     <ClickAwayListener onClickAway={handler.handleCloseHelpPopper}>
       <div>
         {!R.isNil(parentElements) && (
-          <div onMouseEnter={handler.handleOpenHelpPopper}>
+          <div
+            onMouseLeave={handler.handleCloseHelpPopper}
+            onMouseEnter={handler.handleOpenHelpPopper}>
             {parentElements}
           </div>
         )}
@@ -101,6 +103,7 @@ const HoverableTooltip = memo(({ parentElements, children, width }) => {
           <button
             type="button"
             onMouseEnter={handler.handleOpenHelpPopper}
+            onMouseLeave={handler.handleCloseHelpPopper}>
             className={handler.classes.transparentButton}>
             <HelpIcon />
           </button>
