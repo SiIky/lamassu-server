@@ -6,7 +6,8 @@ import React, { useState } from 'react'
 
 import LogsDowloaderPopover from 'src/components/LogsDownloaderPopper'
 import Modal from 'src/components/Modal'
-import { IconButton, Button } from 'src/components/buttons'
+import { HelpTooltip } from 'src/components/Tooltip.js'
+import { IconButton, Button, SupportLinkButton } from 'src/components/buttons'
 import { RadioGroup } from 'src/components/inputs'
 import TitleSection from 'src/components/layout/TitleSection'
 import { EmptyTable } from 'src/components/table'
@@ -229,7 +230,20 @@ const CashCassettes = () => {
             }
           ]}
           iconClassName={classes.listViewButton}
-          className={classes.tableWidth}>
+          className={classes.tableWidth}
+          appendix={
+            <HelpTooltip width={220}>
+              <P>
+                For details on configuring cash boxes and cassettes, please read
+                the relevant knowledgebase article:
+              </P>
+              <SupportLinkButton
+                link="https://support.lamassu.is/hc/en-us/articles/4420839641229-Cash-Boxes-Cassettess"
+                label="Cash Boxes & Cassettes"
+                bottomSpace="1"
+              />
+            </HelpTooltip>
+          }>
           {!showHistory && (
             <Box alignItems="center" justifyContent="flex-end">
               <Label1 className={classes.cashboxReset}>Cash box resets</Label1>
