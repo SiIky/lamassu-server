@@ -11,7 +11,7 @@ import * as R from 'ramda'
 import React, { memo, useState } from 'react'
 
 import { ConfirmDialog } from 'src/components/ConfirmDialog'
-import { HelpTooltip, HoverableTooltip } from 'src/components/Tooltip'
+import { HelpTooltip } from 'src/components/Tooltip'
 import { IDButton, ActionButton } from 'src/components/buttons'
 import { P, Label1 } from 'src/components/typography'
 import { ReactComponent as CardIdInverseIcon } from 'src/styling/icons/ID/card/white.svg'
