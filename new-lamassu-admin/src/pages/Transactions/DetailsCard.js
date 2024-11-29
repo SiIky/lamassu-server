@@ -191,6 +191,13 @@ const DetailsRow = ({ it: tx, timezone }) => {
     <>
       <Label>Transaction status</Label>
       <span className={classes.bold}>{getStatus(tx)}</span>
+      {getStatusDetails(tx) ? (
+        <CopyToClipboard removeSpace={false} className={classes.errorCopy}>
+          {getStatusDetails(tx)}
+        </CopyToClipboard>
+      ) : (
+        <></>
+      )}
     </>
   )
 
@@ -392,13 +399,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
       </div>
       <div className={classes.lastRow}>
         <div className={classes.status}>
-          {getStatusDetails(tx) ? (
-            <HoverableTooltip parentElements={errorElements} width={200}>
-              <P>{getStatusDetails(tx)}</P>
-            </HoverableTooltip>
-          ) : (
-            errorElements
-          )}
+          {errorElements}
           {((tx.txClass === 'cashOut' && getStatus(tx) === 'Pending') ||
             (tx.txClass === 'cashIn' && getStatus(tx) === 'Batched')) && (
             <ActionButton
