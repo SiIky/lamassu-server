@@ -51,6 +51,12 @@ const styles = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between'
+  },
+  tableWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: 1,
+    marginBottom: 80
   }
 }
 
@@ -158,7 +164,7 @@ const CashboxHistory = ({ machines, currency, timezone }) => {
     },
     {
       name: 'billCount',
-      header: 'Bill Count',
+      header: 'Bill count',
       width: 115,
       textAlign: 'left',
       input: NumberInput,
@@ -243,13 +249,15 @@ const CashboxHistory = ({ machines, currency, timezone }) => {
   ]
 
   return (
-    <DataTable
-      loading={loading}
-      name="cashboxHistory"
-      elements={elements}
-      data={batches}
-      emptyText="No cash box batches so far"
-    />
+    <div className={classes.tableWrapper}>
+      <DataTable
+        loading={loading}
+        name="cashboxHistory"
+        elements={elements}
+        data={batches}
+        emptyText="No cash box batches so far"
+      />
+    </div>
   )
 }
 

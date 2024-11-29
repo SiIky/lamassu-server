@@ -74,7 +74,7 @@ const MachineStatus = () => {
 
   const elements = [
     {
-      header: 'Machine Name',
+      header: 'Machine name',
       width: 250,
       size: 'sm',
       textAlign: 'left',
@@ -111,7 +111,7 @@ const MachineStatus = () => {
           : 'unknown'
     },
     {
-      header: 'Software Version',
+      header: 'Software version',
       width: 200,
       size: 'sm',
       textAlign: 'left',
@@ -134,7 +134,7 @@ const MachineStatus = () => {
     <>
       <div className={classes.titleWrapper}>
         <div className={classes.titleAndButtonsContainer}>
-          <Title>Machine Status</Title>
+          <Title>Machine status</Title>
         </div>
         <div className={classes.headerLabels}>
           <div>

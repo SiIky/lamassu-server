@@ -73,10 +73,13 @@ const CustomerData = ({
   authorizeCustomRequest,
   updateCustomEntry,
   retrieveAdditionalDataDialog,
-  setRetrieve
+  setRetrieve,
+  checkAgainstSanctions
 }) => {
   const classes = useStyles()
   const [listView, setListView] = useState(false)
+  const [previewPhoto, setPreviewPhoto] = useState(null)
+  const [previewCard, setPreviewCard] = useState(null)
 
   const idData = R.path(['idCardData'])(customer)
   const rawExpirationDate = R.path(['expirationDate'])(idData)
@@ -172,6 +175,12 @@ const CustomerData = ({
           idCardData: R.merge(idData, formatDates(values))
         }),
       validationSchema: customerDataSchemas.idCardData,
+      checkAgainstSanctions: () =>
+        checkAgainstSanctions({
+          variables: {
+            customerId: R.path(['id'])(customer)
+          }
+        }),
       initialValues: initialValues.idCardData,
       isAvailable: !R.isNil(idData),
       editable: true
@@ -213,9 +222,6 @@ const CustomerData = ({
     {
       title: 'Name',
       titleIcon: <EditIcon className={classes.editIcon} />,
-      authorize: () => {},
-      reject: () => {},
-      save: () => {},
       isAvailable: false,
       editable: true
     },
@@ -226,7 +232,7 @@ const CustomerData = ({
       authorize: () =>
         updateCustomer({ sanctionsOverride: OVERRIDE_AUTHORIZED }),
       reject: () => updateCustomer({ sanctionsOverride: OVERRIDE_REJECTED }),
-      children: <Info3>{sanctionsDisplay}</Info3>,
+      children: () => <Info3>{sanctionsDisplay}</Info3>,
       isAvailable: !R.isNil(sanctions),
       editable: true
     },
@@ -238,20 +244,33 @@ const CustomerData = ({
       authorize: () =>
         updateCustomer({ frontCameraOverride: OVERRIDE_AUTHORIZED }),
       reject: () => updateCustomer({ frontCameraOverride: OVERRIDE_REJECTED }),
-      save: values =>
-        replacePhoto({
+      save: values => {
+        setPreviewPhoto(null)
+        return replacePhoto({
           newPhoto: values.frontCamera,
           photoType: 'frontCamera'
-        }),
+        })
+      },
+      cancel: () => setPreviewPhoto(null),
       deleteEditedData: () => deleteEditedData({ frontCamera: null }),
-      children: customer.frontCameraPath ? (
-        <Photo
-          show={customer.frontCameraPath}
-          src={`${URI}/front-camera-photo/${R.path(['frontCameraPath'])(
-            customer
-          )}`}
-        />
-      ) : null,
+      children: values => {
+        if (values.frontCamera !== previewPhoto) {
+          setPreviewPhoto(values.frontCamera)
+        }
+
+        return customer.frontCameraPath ? (
+          <Photo
+            show={customer.frontCameraPath}
+            src={
+              !R.isNil(previewPhoto)
+                ? URL.createObjectURL(previewPhoto)
+                : `${URI}/front-camera-photo/${R.path(['frontCameraPath'])(
+                    customer
+                  )}`
+            }
+          />
+        ) : null
+      },
       hasImage: true,
       validationSchema: customerDataSchemas.frontCamera,
       initialValues: initialValues.frontCamera,
@@ -266,18 +285,33 @@ const CustomerData = ({
       authorize: () =>
         updateCustomer({ idCardPhotoOverride: OVERRIDE_AUTHORIZED }),
       reject: () => updateCustomer({ idCardPhotoOverride: OVERRIDE_REJECTED }),
-      save: values =>
-        replacePhoto({
+      save: values => {
+        setPreviewCard(null)
+        return replacePhoto({
           newPhoto: values.idCardPhoto,
           photoType: 'idCardPhoto'
-        }),
+        })
+      },
+      cancel: () => setPreviewCard(null),
       deleteEditedData: () => deleteEditedData({ idCardPhoto: null }),
-      children: customer.idCardPhotoPath ? (
-        <Photo
-          show={customer.idCardPhotoPath}
-          src={`${URI}/id-card-photo/${R.path(['idCardPhotoPath'])(customer)}`}
-        />
-      ) : null,
+      children: values => {
+        if (values.idCardPhoto !== previewCard) {
+          setPreviewCard(values.idCardPhoto)
+        }
+
+        return customer.idCardPhotoPath ? (
+          <Photo
+            show={customer.idCardPhotoPath}
+            src={
+              !R.isNil(previewCard)
+                ? URL.createObjectURL(previewCard)
+                : `${URI}/id-card-photo/${R.path(['idCardPhotoPath'])(
+                    customer
+                  )}`
+            }
+          />
+        ) : null
+      },
       hasImage: true,
       validationSchema: customerDataSchemas.idCardPhoto,
       initialValues: initialValues.idCardPhoto,
@@ -292,6 +326,7 @@ const CustomerData = ({
       authorize: () => updateCustomer({ usSsnOverride: OVERRIDE_AUTHORIZED }),
       reject: () => updateCustomer({ usSsnOverride: OVERRIDE_REJECTED }),
       save: values => editCustomer(values),
+      children: () => {},
       deleteEditedData: () => deleteEditedData({ usSsn: null }),
       validationSchema: customerDataSchemas.usSsn,
       initialValues: initialValues.usSsn,
@@ -427,6 +462,7 @@ const CustomerData = ({
       titleIcon,
       fields,
       save,
+      cancel,
       deleteEditedData,
       retrieveAdditionalData,
       children,
@@ -434,7 +470,8 @@ const CustomerData = ({
       initialValues,
       hasImage,
       hasAdditionalData,
-      editable
+      editable,
+      checkAgainstSanctions
     },
     idx
   ) => {
@@ -453,8 +490,10 @@ const CustomerData = ({
         validationSchema={validationSchema}
         initialValues={initialValues}
         save={save}
+        cancel={cancel}
         deleteEditedData={deleteEditedData}
         retrieveAdditionalData={retrieveAdditionalData}
+        checkAgainstSanctions={checkAgainstSanctions}
         editable={editable}></EditableCard>
     )
   }
