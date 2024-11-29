@@ -11,7 +11,7 @@ import * as R from 'ramda'
 import React, { memo, useState } from 'react'
 
 import { ConfirmDialog } from 'src/components/ConfirmDialog'
-import { HoverableTooltip } from 'src/components/Tooltip'
+import { HelpTooltip, HoverableTooltip } from 'src/components/Tooltip'
 import { IDButton, ActionButton } from 'src/components/buttons'
 import { P, Label1 } from 'src/components/typography'
 import { ReactComponent as CardIdInverseIcon } from 'src/styling/icons/ID/card/white.svg'
@@ -133,9 +133,9 @@ const DetailsRow = ({ it: tx, timezone }) => {
   const commission = BigNumber(tx.profit).toFixed(2, 1) // ROUND_DOWN
   const commissionPercentage =
     Number.parseFloat(tx.commissionPercentage, 2) * 100
-  const cashInFee = isCashIn ? Number.parseFloat(tx.cashInFee) : 0
+  const fixedFee = Number.parseFloat(tx.fixedFee) || 0
   const fiat = BigNumber(tx.fiat)
-    .minus(cashInFee)
+    .minus(fixedFee)
     .toFixed(2, 1) // ROUND_DOWN
   const crypto = getCryptoAmount(tx)
   const cryptoFee = tx.fee ? `${getCryptoFeeAmount(tx)} ${tx.fiatCode}` : 'N/A'
@@ -191,6 +191,13 @@ const DetailsRow = ({ it: tx, timezone }) => {
     <>
       <Label>Transaction status</Label>
       <span className={classes.bold}>{getStatus(tx)}</span>
+      {getStatusDetails(tx) ? (
+        <CopyToClipboard removeSpace={false} className={classes.errorCopy}>
+          {getStatusDetails(tx)}
+        </CopyToClipboard>
+      ) : (
+        <></>
+      )}
     </>
   )
 
@@ -350,7 +357,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
         </div>
         <div>
           <Label>Fixed fee</Label>
-          <div>{isCashIn ? `${cashInFee} ${tx.fiatCode}` : 'N/A'}</div>
+          <div>{`${fixedFee} ${tx.fiatCode}`}</div>
         </div>
       </div>
       <div className={classes.secondRow}>
@@ -358,9 +365,9 @@ const DetailsRow = ({ it: tx, timezone }) => {
           <div className={classes.addressHeader}>
             <Label>Address</Label>
             {!R.isNil(tx.walletScore) && (
-              <HoverableTooltip parentElements={walletScoreEl}>
+              <HelpTooltip parentElements={walletScoreEl}>
                 {`Chain analysis score: ${tx.walletScore}/10`}
-              </HoverableTooltip>
+              </HelpTooltip>
             )}
           </div>
           <div>
@@ -392,13 +399,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
       </div>
       <div className={classes.lastRow}>
         <div className={classes.status}>
-          {getStatusDetails(tx) ? (
-            <HoverableTooltip parentElements={errorElements} width={200}>
-              <P>{getStatusDetails(tx)}</P>
-            </HoverableTooltip>
-          ) : (
-            errorElements
-          )}
+          {errorElements}
           {((tx.txClass === 'cashOut' && getStatus(tx) === 'Pending') ||
             (tx.txClass === 'cashIn' && getStatus(tx) === 'Batched')) && (
             <ActionButton

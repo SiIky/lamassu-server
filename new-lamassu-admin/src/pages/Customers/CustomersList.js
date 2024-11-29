@@ -36,7 +36,7 @@ const CustomersList = ({
       view: getName
     },
     {
-      header: 'Total TXs',
+      header: 'Total Txs',
       width: 126,
       textAlign: 'right',
       view: it => `${Number.parseInt(it.totalTxs)}`

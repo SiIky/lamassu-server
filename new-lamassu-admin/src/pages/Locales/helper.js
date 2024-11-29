@@ -157,7 +157,7 @@ const LocaleSchema = Yup.object().shape({
     .label('Country')
     .required(),
   fiatCurrency: Yup.string()
-    .label('Fiat Currency')
+    .label('Fiat currency')
     .required(),
   languages: Yup.array()
     .label('Languages')
@@ -165,7 +165,7 @@ const LocaleSchema = Yup.object().shape({
     .min(1)
     .max(4),
   cryptoCurrencies: Yup.array()
-    .label('Crypto Currencies')
+    .label('Crypto currencies')
     .required()
     .min(1),
   timezone: Yup.string()
@@ -186,7 +186,7 @@ const OverridesSchema = Yup.object().shape({
     .min(1)
     .max(4),
   cryptoCurrencies: Yup.array()
-    .label('Crypto Currencies')
+    .label('Crypto currencies')
     .required()
     .min(1)
 })

@@ -19,14 +19,14 @@ export default {
     },
     {
       code: 'key',
-      display: 'API Key',
+      display: 'API key',
       component: TextInputFormik,
       face: true,
       long: true
     },
     {
       code: 'secret',
-      display: 'API Secret',
+      display: 'API secret',
       component: SecretInputFormik
     }
   ],

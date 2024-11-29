@@ -5,6 +5,8 @@ import * as R from 'ramda'
 import React, { useState } from 'react'
 
 import Modal from 'src/components/Modal'
+import { HelpTooltip } from 'src/components/Tooltip'
+import { SupportLinkButton } from 'src/components/buttons'
 import { NamespacedTable as EditableTable } from 'src/components/editableTable'
 import TitleSection from 'src/components/layout/TitleSection'
 import FormRenderer from 'src/pages/Services/FormRenderer'
@@ -12,6 +14,8 @@ import schemas from 'src/pages/Services/schemas'
 import { ReactComponent as ReverseSettingsIcon } from 'src/styling/icons/circle buttons/settings/white.svg'
 import { ReactComponent as SettingsIcon } from 'src/styling/icons/circle buttons/settings/zodiac.svg'
 import { fromNamespace, toNamespace } from 'src/utils/config'
+
+import { P } from '../../components/typography'
 
 import AdvancedWallet from './AdvancedWallet'
 import styles from './Wallet.styles.js'
@@ -115,7 +119,7 @@ const Wallet = ({ name: SCREEN_KEY }) => {
     <>
       <div className={classes.header}>
         <TitleSection
-          title="Wallet Settings"
+          title="Wallet settings"
           buttons={[
             {
               text: 'Advanced settings',
@@ -124,6 +128,19 @@ const Wallet = ({ name: SCREEN_KEY }) => {
               toggle: setAdvancedSettings
             }
           ]}
+          appendix={
+            <HelpTooltip width={340}>
+              <P>
+                For details on configuring wallets, please read the relevant
+                knowledgebase article:
+              </P>
+              <SupportLinkButton
+                link="https://support.lamassu.is/hc/en-us/articles/360000725832-Wallets-Exchange-Linkage-and-Volatility"
+                label="Wallets, Exchange Linkage, and Volatility"
+                bottomSpace="1"
+              />
+            </HelpTooltip>
+          }
         />
       </div>
       {!advancedSettings && (
