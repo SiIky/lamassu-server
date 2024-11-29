@@ -12,14 +12,14 @@ export default {
   elements: [
     {
       code: 'apiKey',
-      display: 'API Key',
+      display: 'API key',
       component: TextInputFormik,
       face: true,
       long: true
     },
     {
       code: 'privateKey',
-      display: 'Private Key',
+      display: 'Private key',
       component: SecretInputFormik
     }
   ],
