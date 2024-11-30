@@ -144,7 +144,6 @@ const Blacklist = () => {
   })
 
   const [addEntry] = useMutation(ADD_ROW, {
-    onError: () => console.log('Error while adding row'),
     refetchQueries: () => ['getBlacklistData']
   })
 
@@ -184,33 +183,22 @@ const Blacklist = () => {
     setConfirmDialog(false)
   }
 
-  const validateAddress = address => {
-    try {
-      return !R
-        .isEmpty
-        // addressDetector.getSupportedCoinsForAddress(address).matches
-        ()
-    } catch {
-      return false
-    }
-  }
-
   const addToBlacklist = async address => {
     setErrorMsg(null)
-    if (!validateAddress(address)) {
-      setErrorMsg('Invalid address')
-      return
-    }
-    const res = await addEntry({ variables: { address } })
-    if (!res.errors) {
-      return setShowModal(false)
-    }
-    const duplicateKeyError = res.errors.some(e => {
-      return e.message.includes('duplicate')
-    })
-    if (duplicateKeyError) {
-      setErrorMsg('This address is already being blocked')
-    } else {
+    try {
+      const res = await addEntry({ variables: { address } })
+      if (!res?.errors) {
+        return setShowModal(false)
+      }
+      const duplicateKeyError = res?.errors?.some(e => {
+        return e.message.includes('duplicate')
+      })
+      if (duplicateKeyError) {
+        setErrorMsg('This address is already being blocked')
+      } else {
+        setErrorMsg(`Server error${': ' + res?.errors[0]?.message}`)
+      }
+    } catch (e) {
       setErrorMsg('Server error')
     }
   }
