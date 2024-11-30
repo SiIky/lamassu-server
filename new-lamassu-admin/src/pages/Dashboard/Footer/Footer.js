@@ -6,10 +6,10 @@ import classnames from 'classnames'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React from 'react'
+import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
 
 import { Label2 } from 'src/components/typography'
-import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
 import { fromNamespace } from 'src/utils/config'
 
 import styles from './Footer.styles'

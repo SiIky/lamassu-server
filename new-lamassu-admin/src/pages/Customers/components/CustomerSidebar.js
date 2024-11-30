@@ -1,15 +1,14 @@
 import { makeStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import React from 'react'
-
-import { ReactComponent as CustomerDataReversedIcon } from 'src/styling/icons/customer-nav/data/comet.svg'
-import { ReactComponent as CustomerDataIcon } from 'src/styling/icons/customer-nav/data/white.svg'
-import { ReactComponent as NoteReversedIcon } from 'src/styling/icons/customer-nav/note/comet.svg'
-import { ReactComponent as NoteIcon } from 'src/styling/icons/customer-nav/note/white.svg'
-import { ReactComponent as OverviewReversedIcon } from 'src/styling/icons/customer-nav/overview/comet.svg'
-import { ReactComponent as OverviewIcon } from 'src/styling/icons/customer-nav/overview/white.svg'
-import { ReactComponent as PhotosReversedIcon } from 'src/styling/icons/customer-nav/photos/comet.svg'
-import { ReactComponent as Photos } from 'src/styling/icons/customer-nav/photos/white.svg'
+import CustomerDataReversedIcon from 'src/styling/icons/customer-nav/data/comet.svg?react'
+import CustomerDataIcon from 'src/styling/icons/customer-nav/data/white.svg?react'
+import NoteReversedIcon from 'src/styling/icons/customer-nav/note/comet.svg?react'
+import NoteIcon from 'src/styling/icons/customer-nav/note/white.svg?react'
+import OverviewReversedIcon from 'src/styling/icons/customer-nav/overview/comet.svg?react'
+import OverviewIcon from 'src/styling/icons/customer-nav/overview/white.svg?react'
+import PhotosReversedIcon from 'src/styling/icons/customer-nav/photos/comet.svg?react'
+import Photos from 'src/styling/icons/customer-nav/photos/white.svg?react'
 
 import styles from './CustomerSidebar.styles.js'
 

@@ -3,11 +3,11 @@ import classnames from 'classnames'
 import prettyMs from 'pretty-ms'
 import * as R from 'ramda'
 import React from 'react'
+import Wrench from 'src/styling/icons/action/wrench/zodiac.svg?react'
+import Transaction from 'src/styling/icons/arrow/transaction.svg?react'
+import WarningIcon from 'src/styling/icons/warning-icon/tomato.svg?react'
 
 import { Label1, Label2, TL2 } from 'src/components/typography'
-import { ReactComponent as Wrench } from 'src/styling/icons/action/wrench/zodiac.svg'
-import { ReactComponent as Transaction } from 'src/styling/icons/arrow/transaction.svg'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/tomato.svg'
 
 import styles from './NotificationCenter.styles'
 const useStyles = makeStyles(styles)

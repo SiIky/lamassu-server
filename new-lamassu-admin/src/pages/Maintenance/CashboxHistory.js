@@ -4,15 +4,15 @@ import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React from 'react'
 // import * as Yup from 'yup'
-
 // import { Link, IconButton } from 'src/components/buttons'
 // import { TextInput } from 'src/components/inputs'
+import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
+
 import { NumberInput } from 'src/components/inputs/formik'
 import DataTable from 'src/components/tables/DataTable'
-// import { ReactComponent as EditIconDisabled } from 'src/styling/icons/action/edit/disabled.svg'
-// import { ReactComponent as EditIcon } from 'src/styling/icons/action/edit/enabled.svg'
-import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
+// import EditIconDisabled from 'src/styling/icons/action/edit/disabled.svg?react'
+// import EditIcon from 'src/styling/icons/action/edit/enabled.svg?react'
 import { formatDate } from 'src/utils/timezones'
 
 const GET_BATCHES = gql`

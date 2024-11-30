@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import { Formik, Form, Field } from 'formik'
 import React from 'react'
+import WarningIcon from 'src/styling/icons/warning-icon/comet.svg?react'
 
 import ErrorMessage from 'src/components/ErrorMessage'
 import Stepper from 'src/components/Stepper'
@@ -16,7 +17,6 @@ import tejo4CassetteOne from 'src/styling/icons/cassettes/tejo/4-cassettes/4-cas
 import tejo4CassetteTwo from 'src/styling/icons/cassettes/tejo/4-cassettes/4-cassettes-open-2-left.svg'
 import tejo4CassetteThree from 'src/styling/icons/cassettes/tejo/4-cassettes/4-cassettes-open-3-left.svg'
 import tejo4CassetteFour from 'src/styling/icons/cassettes/tejo/4-cassettes/4-cassettes-open-4-left.svg'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/comet.svg'
 
 import styles from './WizardStep.styles'
 const useStyles = makeStyles(styles)

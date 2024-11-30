@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/react-hooks'
-import { utils as coinUtils } from '@lamassu/coins'
+import { formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core/styles'
 import BigNumber from 'bignumber.js'
 import classnames from 'classnames'
@@ -55,7 +55,7 @@ const GET_FUNDING = gql`
 `
 
 const formatAddress = (cryptoCode = '', address = '') =>
-  coinUtils.formatCryptoAddress(cryptoCode, address).replace(/(.{4})/g, '$1 ')
+  formatCryptoAddress(cryptoCode, address).replace(/(.{4})/g, '$1 ')
 const sumReducer = (acc, value) => acc.plus(value)
 const formatNumber = it => new BigNumber(it).toFormat(2)
 

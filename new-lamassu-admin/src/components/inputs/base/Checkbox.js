@@ -3,9 +3,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import CheckBoxIcon from '@material-ui/icons/CheckBox'
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank'
 import React from 'react'
+import WarningIcon from 'src/styling/icons/warning-icon/comet.svg?react'
 
 import { Label2, Info3 } from 'src/components/typography'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/comet.svg'
 import {
   fontSize2,
   fontSize3,

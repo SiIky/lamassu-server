@@ -15,10 +15,10 @@ import {
 } from 'date-fns/fp'
 import * as R from 'ramda'
 import React, { useState } from 'react'
+import Arrow from 'src/styling/icons/arrow/month_change.svg?react'
+import RightArrow from 'src/styling/icons/arrow/month_change_right.svg?react'
 
 import typographyStyles from 'src/components/typography/styles'
-import { ReactComponent as Arrow } from 'src/styling/icons/arrow/month_change.svg'
-import { ReactComponent as RightArrow } from 'src/styling/icons/arrow/month_change_right.svg'
 import { primaryColor, zircon } from 'src/styling/variables'
 
 import Tile from './Tile'

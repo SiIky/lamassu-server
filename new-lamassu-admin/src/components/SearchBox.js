@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import MAutocomplete from '@material-ui/lab/Autocomplete'
 import classnames from 'classnames'
 import React, { memo, useState } from 'react'
+import SearchIcon from 'src/styling/icons/circle buttons/search/zodiac.svg?react'
 
 import { P } from 'src/components/typography'
-import { ReactComponent as SearchIcon } from 'src/styling/icons/circle buttons/search/zodiac.svg'
 
 import styles from './SearchBox.styles'
 

@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import React, { memo, useState } from 'react'
+import CancelIconInverse from 'src/styling/icons/button/cancel/white.svg?react'
 
 import { H4 } from 'src/components/typography'
-import { ReactComponent as CancelIconInverse } from 'src/styling/icons/button/cancel/white.svg'
 
 import subpageButtonStyles from './SubpageButton.styles'
 

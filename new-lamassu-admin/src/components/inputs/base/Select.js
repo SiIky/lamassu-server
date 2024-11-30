@@ -3,8 +3,7 @@ import classnames from 'classnames'
 import { useSelect } from 'downshift'
 import * as R from 'ramda'
 import React from 'react'
-
-import { ReactComponent as Arrowdown } from 'src/styling/icons/action/arrow/regular.svg'
+import Arrowdown from 'src/styling/icons/action/arrow/regular.svg?react'
 
 import styles from './Select.styles'
 

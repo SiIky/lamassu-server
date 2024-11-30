@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 import React, { memo } from 'react'
 import ReactCarousel from 'react-material-ui-carousel'
+import LeftArrow from 'src/styling/icons/arrow/carousel-left-arrow.svg?react'
+import RightArrow from 'src/styling/icons/arrow/carousel-right-arrow.svg?react'
 
-import { ReactComponent as LeftArrow } from 'src/styling/icons/arrow/carousel-left-arrow.svg'
-import { ReactComponent as RightArrow } from 'src/styling/icons/arrow/carousel-right-arrow.svg'
 import { URI } from 'src/utils/apollo'
 
 const useStyles = makeStyles({

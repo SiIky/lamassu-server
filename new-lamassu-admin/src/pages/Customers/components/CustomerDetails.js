@@ -1,9 +1,9 @@
 import { makeStyles, Box } from '@material-ui/core'
 import * as R from 'ramda'
 import React, { memo } from 'react'
+import IdIcon from 'src/styling/icons/ID/card/zodiac.svg?react'
 
 import { H2, Label1, P } from 'src/components/typography'
-import { ReactComponent as IdIcon } from 'src/styling/icons/ID/card/zodiac.svg'
 
 import mainStyles from '../CustomersList.styles'
 import { getFormattedPhone, getName } from '../helper'

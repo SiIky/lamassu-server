@@ -1,19 +1,18 @@
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import { addressDetector } from '@lamassu/coins'
 import { Box, Dialog, DialogContent, DialogActions } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
+import ReverseSettingsIcon from 'src/styling/icons/circle buttons/settings/white.svg?react'
+import SettingsIcon from 'src/styling/icons/circle buttons/settings/zodiac.svg?react'
 
 import { HelpTooltip } from 'src/components/Tooltip'
 import { Link, Button, IconButton } from 'src/components/buttons'
 import { Switch } from 'src/components/inputs'
 import TitleSection from 'src/components/layout/TitleSection'
 import { H2, Label2, P, Info3, Info2 } from 'src/components/typography'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
-import { ReactComponent as ReverseSettingsIcon } from 'src/styling/icons/circle buttons/settings/white.svg'
-import { ReactComponent as SettingsIcon } from 'src/styling/icons/circle buttons/settings/zodiac.svg'
 import { fromNamespace, toNamespace } from 'src/utils/config'
 
 import styles from './Blacklist.styles'
@@ -187,9 +186,10 @@ const Blacklist = () => {
 
   const validateAddress = address => {
     try {
-      return !R.isEmpty(
-        addressDetector.getSupportedCoinsForAddress(address).matches
-      )
+      return !R
+        .isEmpty
+        // addressDetector.getSupportedCoinsForAddress(address).matches
+        ()
     } catch {
       return false
     }

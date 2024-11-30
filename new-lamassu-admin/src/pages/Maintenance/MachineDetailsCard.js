@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import React from 'react'
 
 // import { Status } from 'src/components/Status'
-// import { ReactComponent as LinkIcon } from 'src/styling/icons/button/link/zodiac.svg'
+// import LinkIcon from 'src/styling/icons/button/link/zodiac.svg?react'
 import MachineActions from 'src/components/machineActions/MachineActions'
 import { modelPrettifier } from 'src/utils/machine'
 import { formatDate } from 'src/utils/timezones'

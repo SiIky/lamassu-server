@@ -3,10 +3,10 @@ import Paper from '@material-ui/core/Card'
 import { makeStyles } from '@material-ui/core/styles'
 import * as R from 'ramda'
 import React, { memo, useState } from 'react'
+import CrossedCameraIcon from 'src/styling/icons/ID/photo/crossed-camera.svg?react'
 
 import { InformativeDialog } from 'src/components/InformativeDialog'
 import { Info2 } from 'src/components/typography'
-import { ReactComponent as CrossedCameraIcon } from 'src/styling/icons/ID/photo/crossed-camera.svg'
 import { URI } from 'src/utils/apollo'
 
 import styles from './PhotosCard.styles'

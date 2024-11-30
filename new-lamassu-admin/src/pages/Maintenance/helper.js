@@ -1,8 +1,8 @@
 import * as R from 'ramda'
+import EditIcon from 'src/styling/icons/action/edit/enabled.svg?react'
 
 import { IconButton } from 'src/components/buttons'
 import { CashIn, CashOutLite } from 'src/components/inputs/cashbox/Cashbox'
-import { ReactComponent as EditIcon } from 'src/styling/icons/action/edit/enabled.svg'
 import { fromNamespace } from 'src/utils/config'
 import { getCashUnitCapacity } from 'src/utils/machine'
 

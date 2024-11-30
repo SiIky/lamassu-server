@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
 import React, { useState, memo } from 'react'
+import EditIconDisabled from 'src/styling/icons/action/edit/disabled.svg?react'
+import EditIcon from 'src/styling/icons/action/edit/enabled.svg?react'
 
 import { Link } from 'src/components/buttons'
 import { RadioGroup } from 'src/components/inputs'
 import { H4, P } from 'src/components/typography'
-import { ReactComponent as EditIconDisabled } from 'src/styling/icons/action/edit/disabled.svg'
-import { ReactComponent as EditIcon } from 'src/styling/icons/action/edit/enabled.svg'
 
 import { editablePropertyStyles } from './EditableProperty.styles'
 

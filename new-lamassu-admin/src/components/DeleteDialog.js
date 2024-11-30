@@ -5,10 +5,10 @@ import {
   makeStyles
 } from '@material-ui/core'
 import React from 'react'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
 
 import { Button, IconButton } from 'src/components/buttons'
 import { H4, P } from 'src/components/typography'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
 import { spacer } from 'src/styling/variables'
 
 import ErrorMessage from './ErrorMessage'

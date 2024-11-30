@@ -1,9 +1,9 @@
 import { Dialog, DialogContent, makeStyles } from '@material-ui/core'
 import React, { memo } from 'react'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
 
 import { IconButton } from 'src/components/buttons'
 import { H1 } from 'src/components/typography'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
 import { spacer } from 'src/styling/variables'
 
 const useStyles = makeStyles({

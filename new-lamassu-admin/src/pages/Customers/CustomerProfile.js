@@ -12,6 +12,13 @@ import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { memo, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
+import AuthorizeReversedIcon from 'src/styling/icons/button/authorize/white.svg?react'
+import AuthorizeIcon from 'src/styling/icons/button/authorize/zodiac.svg?react'
+import BlockReversedIcon from 'src/styling/icons/button/block/white.svg?react'
+import BlockIcon from 'src/styling/icons/button/block/zodiac.svg?react'
+import DataReversedIcon from 'src/styling/icons/button/data/white.svg?react'
+import DataIcon from 'src/styling/icons/button/data/zodiac.svg?react'
 
 import ErrorMessage from 'src/components/ErrorMessage'
 import { Button, IconButton, ActionButton } from 'src/components/buttons'
@@ -21,16 +28,9 @@ import {
   OVERRIDE_AUTHORIZED,
   OVERRIDE_REJECTED
 } from 'src/pages/Customers/components/propertyCard'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
-import { ReactComponent as AuthorizeReversedIcon } from 'src/styling/icons/button/authorize/white.svg'
-import { ReactComponent as AuthorizeIcon } from 'src/styling/icons/button/authorize/zodiac.svg'
-import { ReactComponent as BlockReversedIcon } from 'src/styling/icons/button/block/white.svg'
-import { ReactComponent as BlockIcon } from 'src/styling/icons/button/block/zodiac.svg'
-import { ReactComponent as DataReversedIcon } from 'src/styling/icons/button/data/white.svg'
-import { ReactComponent as DataIcon } from 'src/styling/icons/button/data/zodiac.svg'
 // TODO: Enable for next release
-// import { ReactComponent as DiscountReversedIcon } from 'src/styling/icons/button/discount/white.svg'
-// import { ReactComponent as Discount } from 'src/styling/icons/button/discount/zodiac.svg'
+// import DiscountReversedIcon from 'src/styling/icons/button/discount/white.svg?react'
+// import Discount from 'src/styling/icons/button/discount/zodiac.svg?react'
 import { fromNamespace, namespaces } from 'src/utils/config'
 
 import CustomerData from './CustomerData'

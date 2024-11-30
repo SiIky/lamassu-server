@@ -1,13 +1,13 @@
 import { makeStyles, Box } from '@material-ui/core'
 import * as R from 'ramda'
 import React, { memo } from 'react'
+import CrossedCameraIcon from 'src/styling/icons/ID/photo/crossed-camera.svg?react'
 
 import {
   PropertyCard,
   OVERRIDE_AUTHORIZED,
   OVERRIDE_REJECTED
 } from 'src/pages/Customers/components/propertyCard'
-import { ReactComponent as CrossedCameraIcon } from 'src/styling/icons/ID/photo/crossed-camera.svg'
 import { URI } from 'src/utils/apollo'
 
 const useStyles = makeStyles({

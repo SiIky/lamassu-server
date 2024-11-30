@@ -9,8 +9,7 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 import AppContext from 'src/AppContext'
 
-const URI =
-  process.env.NODE_ENV === 'development' ? 'https://localhost:8070' : ''
+const URI = ''
 
 const uploadLink = createUploadLink({
   credentials: 'include',

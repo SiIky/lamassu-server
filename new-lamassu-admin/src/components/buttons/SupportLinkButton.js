@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import InverseLinkIcon from 'src/styling/icons/action/external link/white.svg?react'
+import LinkIcon from 'src/styling/icons/action/external link/zodiac.svg?react'
 
 import { ActionButton } from 'src/components/buttons'
-import { ReactComponent as InverseLinkIcon } from 'src/styling/icons/action/external link/white.svg'
-import { ReactComponent as LinkIcon } from 'src/styling/icons/action/external link/zodiac.svg'
 import { spacer, primaryColor } from 'src/styling/variables'
 
 const useStyles = makeStyles({

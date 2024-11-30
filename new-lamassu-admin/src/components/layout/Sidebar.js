@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles'
 import classnames from 'classnames'
 import React from 'react'
+import CompleteStageIconZodiac from 'src/styling/icons/stage/zodiac/complete.svg?react'
+import CurrentStageIconZodiac from 'src/styling/icons/stage/zodiac/current.svg?react'
+import EmptyStageIconZodiac from 'src/styling/icons/stage/zodiac/empty.svg?react'
 
 import { P } from 'src/components/typography'
-import { ReactComponent as CompleteStageIconZodiac } from 'src/styling/icons/stage/zodiac/complete.svg'
-import { ReactComponent as CurrentStageIconZodiac } from 'src/styling/icons/stage/zodiac/current.svg'
-import { ReactComponent as EmptyStageIconZodiac } from 'src/styling/icons/stage/zodiac/empty.svg'
 
 import styles from './Sidebar.styles'
 

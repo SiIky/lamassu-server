@@ -2,12 +2,12 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React from 'react'
+import DeleteIcon from 'src/styling/icons/action/delete/enabled.svg?react'
 import parser from 'ua-parser-js'
 
 import { IconButton } from 'src/components/buttons'
 import TitleSection from 'src/components/layout/TitleSection'
 import DataTable from 'src/components/tables/DataTable'
-import { ReactComponent as DeleteIcon } from 'src/styling/icons/action/delete/enabled.svg'
 import { formatDate } from 'src/utils/timezones'
 
 const GET_SESSIONS = gql`

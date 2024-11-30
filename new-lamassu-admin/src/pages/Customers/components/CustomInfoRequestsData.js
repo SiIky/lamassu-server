@@ -3,6 +3,11 @@ import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import gql from 'graphql-tag'
 import React, { useState } from 'react'
+import AuthorizeReversedIcon from 'src/styling/icons/button/authorize/white.svg?react'
+import AuthorizeIcon from 'src/styling/icons/button/authorize/zodiac.svg?react'
+import RejectReversedIcon from 'src/styling/icons/button/cancel/white.svg?react'
+import RejectIcon from 'src/styling/icons/button/cancel/zodiac.svg?react'
+import LinkIcon from 'src/styling/icons/month arrows/right.svg?react'
 
 import Modal from 'src/components/Modal'
 import { MainStatus } from 'src/components/Status'
@@ -16,11 +21,6 @@ import {
   TBody
 } from 'src/components/fake-table/Table'
 import { H3, Label1 } from 'src/components/typography'
-import { ReactComponent as AuthorizeReversedIcon } from 'src/styling/icons/button/authorize/white.svg'
-import { ReactComponent as AuthorizeIcon } from 'src/styling/icons/button/authorize/zodiac.svg'
-import { ReactComponent as RejectReversedIcon } from 'src/styling/icons/button/cancel/white.svg'
-import { ReactComponent as RejectIcon } from 'src/styling/icons/button/cancel/zodiac.svg'
-import { ReactComponent as LinkIcon } from 'src/styling/icons/month arrows/right.svg'
 import { white, disabledColor } from 'src/styling/variables'
 
 import DetailsCard from '../../Triggers/CustomInfoRequests/DetailsCard'

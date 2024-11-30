@@ -1,17 +1,17 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import BitcoinLogo from 'src/styling/logos/icon-bitcoin-colour.svg?react'
+import BitcoinCashLogo from 'src/styling/logos/icon-bitcoincash-colour.svg?react'
+import DashLogo from 'src/styling/logos/icon-dash-colour.svg?react'
+import EthereumLogo from 'src/styling/logos/icon-ethereum-colour.svg?react'
+import LitecoinLogo from 'src/styling/logos/icon-litecoin-colour.svg?react'
+import MoneroLogo from 'src/styling/logos/icon-monero-colour.svg?react'
+import TetherLogo from 'src/styling/logos/icon-tether-colour.svg?react'
+import TronLogo from 'src/styling/logos/icon-tron-colour.svg?react'
+import ZCashLogo from 'src/styling/logos/icon-zcash-colour.svg?react'
 
 import { Button } from 'src/components/buttons'
 import { H1, P } from 'src/components/typography'
-import { ReactComponent as BitcoinLogo } from 'src/styling/logos/icon-bitcoin-colour.svg'
-import { ReactComponent as BitcoinCashLogo } from 'src/styling/logos/icon-bitcoincash-colour.svg'
-import { ReactComponent as DashLogo } from 'src/styling/logos/icon-dash-colour.svg'
-import { ReactComponent as EthereumLogo } from 'src/styling/logos/icon-ethereum-colour.svg'
-import { ReactComponent as LitecoinLogo } from 'src/styling/logos/icon-litecoin-colour.svg'
-import { ReactComponent as MoneroLogo } from 'src/styling/logos/icon-monero-colour.svg'
-import { ReactComponent as TetherLogo } from 'src/styling/logos/icon-tether-colour.svg'
-import { ReactComponent as TronLogo } from 'src/styling/logos/icon-tron-colour.svg'
-import { ReactComponent as ZCashLogo } from 'src/styling/logos/icon-zcash-colour.svg'
 
 const styles = {
   logo: {

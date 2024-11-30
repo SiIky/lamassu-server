@@ -5,12 +5,12 @@ import { Field, Form, Formik } from 'formik'
 import gql from 'graphql-tag'
 import React, { useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
+import Logo from 'src/styling/icons/menu/logo.svg?react'
 import * as Yup from 'yup'
 
 import { Button } from 'src/components/buttons'
 import { SecretInput } from 'src/components/inputs/formik/'
 import { H2, Label3, P } from 'src/components/typography'
-import { ReactComponent as Logo } from 'src/styling/icons/menu/logo.svg'
 
 import styles from './shared.styles'
 

@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core/styles'
 import * as R from 'ramda'
 import React, { useState } from 'react'
+import DeleteIcon from 'src/styling/icons/action/delete/enabled.svg?react'
 
 import { DeleteDialog } from 'src/components/DeleteDialog'
 import { IconButton } from 'src/components/buttons'
 import DataTable from 'src/components/tables/DataTable'
 import CopyToClipboard from 'src/pages/Transactions/CopyToClipboard'
-import { ReactComponent as DeleteIcon } from 'src/styling/icons/action/delete/enabled.svg'
 
 import styles from './Blacklist.styles'
 

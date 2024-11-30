@@ -3,12 +3,12 @@ import { makeStyles, Box } from '@material-ui/core'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
+import DeleteIcon from 'src/styling/icons/action/delete/enabled.svg?react'
 
 import { DeleteDialog } from 'src/components/DeleteDialog'
 import { Link, Button, IconButton } from 'src/components/buttons'
 import DataTable from 'src/components/tables/DataTable'
 import { Label3, TL1 } from 'src/components/typography'
-import { ReactComponent as DeleteIcon } from 'src/styling/icons/action/delete/enabled.svg'
 
 import styles from './PromoCodes.styles'
 import PromoCodesModal from './PromoCodesModal'

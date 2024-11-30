@@ -1,10 +1,10 @@
 import { makeStyles, Modal as MaterialModal, Paper } from '@material-ui/core'
 import classnames from 'classnames'
 import React from 'react'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
 
 import { IconButton } from 'src/components/buttons'
 import { H1, H4 } from 'src/components/typography'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
 
 const styles = {
   modal: {

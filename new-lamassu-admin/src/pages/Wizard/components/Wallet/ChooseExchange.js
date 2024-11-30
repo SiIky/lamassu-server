@@ -1,16 +1,16 @@
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import { utils as coinUtils } from '@lamassu/coins'
+import { getEquivalentCode } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
+import WarningIcon from 'src/styling/icons/warning-icon/comet.svg?react'
 
 import { Button, SupportLinkButton } from 'src/components/buttons'
 import { RadioGroup } from 'src/components/inputs'
 import { H4, Info3 } from 'src/components/typography'
 import FormRenderer from 'src/pages/Services/FormRenderer'
 import schema from 'src/pages/Services/schemas'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/comet.svg'
 
 import styles from './Shared.styles'
 import { getItems } from './getItems'
@@ -55,7 +55,7 @@ const ChooseExchange = ({ data: currentData, addData }) => {
   const accounts = data?.accounts ?? []
   const accountsConfig = data?.accountsConfig ?? []
 
-  const coin = coinUtils.getEquivalentCode(currentData.coin)
+  const coin = getEquivalentCode(currentData.coin)
   const exchanges = getItems(accountsConfig, accounts, 'exchange', coin)
 
   const submit = () => {

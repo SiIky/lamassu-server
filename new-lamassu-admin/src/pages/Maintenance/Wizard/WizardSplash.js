@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import WarningIcon from 'src/styling/icons/warning-icon/comet.svg?react'
 
 import { Button } from 'src/components/buttons'
 import { H1, P, Info2 } from 'src/components/typography'
 import filledCassettes from 'src/styling/icons/cassettes/both-filled.svg'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/comet.svg'
 import { comet } from 'src/styling/variables'
 
 const styles = {

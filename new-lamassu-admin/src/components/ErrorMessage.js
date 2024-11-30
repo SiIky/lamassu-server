@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import React from 'react'
+import ErrorIcon from 'src/styling/icons/warning-icon/tomato.svg?react'
 
-import { ReactComponent as ErrorIcon } from 'src/styling/icons/warning-icon/tomato.svg'
 import { errorColor } from 'src/styling/variables'
 
 import { Info3 } from './typography'

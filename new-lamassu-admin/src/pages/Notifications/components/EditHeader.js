@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import DisabledEditIcon from 'src/styling/icons/action/edit/disabled.svg?react'
+import EditIcon from 'src/styling/icons/action/edit/enabled.svg?react'
 
 import { Link, IconButton } from 'src/components/buttons'
 import { H4 } from 'src/components/typography'
-import { ReactComponent as DisabledEditIcon } from 'src/styling/icons/action/edit/disabled.svg'
-import { ReactComponent as EditIcon } from 'src/styling/icons/action/edit/enabled.svg'
 
 import styles from './EditHeader.styles'
 

@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core'
 import classNames from 'classnames'
 import React, { memo } from 'react'
+import EmptyTableIcon from 'src/styling/icons/table/empty-table.svg?react'
 
 import { H4 } from 'src/components/typography'
-import { ReactComponent as EmptyTableIcon } from 'src/styling/icons/table/empty-table.svg'
 
 const styles = {
   emptyTable: {

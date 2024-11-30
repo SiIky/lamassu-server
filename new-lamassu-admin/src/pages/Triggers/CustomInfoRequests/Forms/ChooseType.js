@@ -1,12 +1,12 @@
 import { Field } from 'formik'
 import React from 'react'
+import Keyboard from 'src/styling/icons/compliance/keyboard.svg?react'
+import Keypad from 'src/styling/icons/compliance/keypad.svg?react'
+import List from 'src/styling/icons/compliance/list.svg?react'
 import * as Yup from 'yup'
 
 import ToggleButtonGroup from 'src/components/inputs/formik/ToggleButtonGroup'
 import { H4 } from 'src/components/typography'
-import { ReactComponent as Keyboard } from 'src/styling/icons/compliance/keyboard.svg'
-import { ReactComponent as Keypad } from 'src/styling/icons/compliance/keypad.svg'
-import { ReactComponent as List } from 'src/styling/icons/compliance/list.svg'
 import { zircon } from 'src/styling/variables'
 
 const MakeIcon = IconSvg => (

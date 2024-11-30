@@ -6,11 +6,11 @@ import gql from 'graphql-tag'
 import QRCode from 'qrcode.react'
 import React, { useReducer, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
+import Logo from 'src/styling/icons/menu/logo.svg?react'
 
 import { ActionButton, Button } from 'src/components/buttons'
 import { CodeInput } from 'src/components/inputs/base'
 import { H2, Label2, Label3, P } from 'src/components/typography'
-import { ReactComponent as Logo } from 'src/styling/icons/menu/logo.svg'
 import { primaryColor } from 'src/styling/variables'
 
 import styles from './shared.styles'

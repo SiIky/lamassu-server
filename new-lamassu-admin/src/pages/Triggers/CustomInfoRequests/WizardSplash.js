@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import CustomReqLogo from 'src/styling/icons/compliance/custom-requirement.svg?react'
 
 import { Button } from 'src/components/buttons'
 import { H1, P } from 'src/components/typography'
-import { ReactComponent as CustomReqLogo } from 'src/styling/icons/compliance/custom-requirement.svg'
 
 const styles = {
   logo: {

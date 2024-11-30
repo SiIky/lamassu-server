@@ -1,11 +1,15 @@
 import { useQuery } from '@apollo/react-hooks'
-import { utils as coinUtils } from '@lamassu/coins'
+import { toUnit, formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
+import CustomerLinkIcon from 'src/styling/icons/month arrows/right.svg?react'
+import CustomerLinkWhiteIcon from 'src/styling/icons/month arrows/right_white.svg?react'
 
 import LogsDowloaderPopover from 'src/components/LogsDownloaderPopper'
 import SearchBox from 'src/components/SearchBox'
@@ -14,10 +18,6 @@ import Title from 'src/components/Title'
 import { HelpTooltip } from 'src/components/Tooltip'
 import { SupportLinkButton } from 'src/components/buttons'
 import DataTable from 'src/components/tables/DataTable'
-import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
-import { ReactComponent as CustomerLinkIcon } from 'src/styling/icons/month arrows/right.svg'
-import { ReactComponent as CustomerLinkWhiteIcon } from 'src/styling/icons/month arrows/right_white.svg'
 import { errorColor } from 'src/styling/variables'
 import * as Customer from 'src/utils/customer'
 import { formatDate } from 'src/utils/timezones'
@@ -214,13 +214,13 @@ const Transactions = () => {
       textAlign: 'right',
       size: 'sm',
       view: it =>
-        `${coinUtils.toUnit(new BigNumber(it.cryptoAtoms), it.cryptoCode)} ${
+        `${toUnit(new BigNumber(it.cryptoAtoms), it.cryptoCode)} ${
           it.cryptoCode
         }`
     },
     {
       header: 'Address',
-      view: it => coinUtils.formatCryptoAddress(it.cryptoCode, it.toAddress),
+      view: it => formatCryptoAddress(it.cryptoCode, it.toAddress),
       className: classes.overflowTd,
       size: 'sm',
       width: 140

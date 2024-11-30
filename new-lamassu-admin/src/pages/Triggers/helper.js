@@ -11,8 +11,8 @@ import { errorColor } from 'src/styling/variables'
 import { transformNumber } from 'src/utils/number'
 import { onlyFirstToUpper } from 'src/utils/string'
 
-// import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-// import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
+// import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+// import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
 
 const useStyles = makeStyles({
   radioLabel: {

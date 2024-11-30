@@ -1,9 +1,9 @@
 import { makeStyles, ClickAwayListener } from '@material-ui/core'
 import * as R from 'ramda'
 import React, { useState, memo } from 'react'
+import HelpIcon from 'src/styling/icons/action/help/zodiac.svg?react'
 
 import Popper from 'src/components/Popper'
-import { ReactComponent as HelpIcon } from 'src/styling/icons/action/help/zodiac.svg'
 
 const useStyles = makeStyles({
   transparentButton: {

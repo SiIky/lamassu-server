@@ -3,10 +3,10 @@ import { useFormikContext } from 'formik'
 import * as R from 'ramda'
 import React, { useState, useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import UploadPhotoIcon from 'src/styling/icons/button/photo/zodiac-resized.svg?react'
+import UploadFileIcon from 'src/styling/icons/button/upload-file/zodiac-resized.svg?react'
 
 import { Label3, H3 } from 'src/components/typography'
-import { ReactComponent as UploadPhotoIcon } from 'src/styling/icons/button/photo/zodiac-resized.svg'
-import { ReactComponent as UploadFileIcon } from 'src/styling/icons/button/upload-file/zodiac-resized.svg'
 import { offColor, subheaderColor } from 'src/styling/variables'
 
 const useStyles = makeStyles({

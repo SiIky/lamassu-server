@@ -3,9 +3,9 @@ import classnames from 'classnames'
 import * as R from 'ramda'
 import React, { useState, useEffect } from 'react'
 import { CopyToClipboard as ReactCopyToClipboard } from 'react-copy-to-clipboard'
+import CopyIcon from 'src/styling/icons/action/copy/copy.svg?react'
 
 import Popover from 'src/components/Popper'
-import { ReactComponent as CopyIcon } from 'src/styling/icons/action/copy/copy.svg'
 import { comet } from 'src/styling/variables'
 
 import { cpcStyles } from './Transactions.styles'

@@ -2,13 +2,13 @@ import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import * as R from 'ramda'
 import React, { memo } from 'react'
+import CompleteStageIconSpring from 'src/styling/icons/stage/spring/complete.svg?react'
+import CurrentStageIconSpring from 'src/styling/icons/stage/spring/current.svg?react'
+import EmptyStageIconSpring from 'src/styling/icons/stage/spring/empty.svg?react'
+import CompleteStageIconZodiac from 'src/styling/icons/stage/zodiac/complete.svg?react'
+import CurrentStageIconZodiac from 'src/styling/icons/stage/zodiac/current.svg?react'
+import EmptyStageIconZodiac from 'src/styling/icons/stage/zodiac/empty.svg?react'
 
-import { ReactComponent as CompleteStageIconSpring } from 'src/styling/icons/stage/spring/complete.svg'
-import { ReactComponent as CurrentStageIconSpring } from 'src/styling/icons/stage/spring/current.svg'
-import { ReactComponent as EmptyStageIconSpring } from 'src/styling/icons/stage/spring/empty.svg'
-import { ReactComponent as CompleteStageIconZodiac } from 'src/styling/icons/stage/zodiac/complete.svg'
-import { ReactComponent as CurrentStageIconZodiac } from 'src/styling/icons/stage/zodiac/current.svg'
-import { ReactComponent as EmptyStageIconZodiac } from 'src/styling/icons/stage/zodiac/empty.svg'
 import {
   primaryColor,
   secondaryColor,

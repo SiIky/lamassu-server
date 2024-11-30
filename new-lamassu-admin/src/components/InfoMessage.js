@@ -1,8 +1,8 @@
 import { Box, makeStyles } from '@material-ui/core'
 import React from 'react'
+import WarningIcon from 'src/styling/icons/warning-icon/comet.svg?react'
 
 import { Label1 } from 'src/components/typography'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/comet.svg'
 
 const useStyles = makeStyles({
   message: ({ width }) => ({

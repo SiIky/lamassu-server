@@ -8,6 +8,8 @@ import {
   CellMeasurer,
   CellMeasurerCache
 } from 'react-virtualized'
+import ExpandClosedIcon from 'src/styling/icons/action/expand/closed.svg?react'
+import ExpandOpenIcon from 'src/styling/icons/action/expand/open.svg?react'
 
 import {
   Table,
@@ -19,8 +21,6 @@ import {
 } from 'src/components/fake-table/Table'
 import styles from 'src/components/tables/DataTable.styles'
 import { H4 } from 'src/components/typography'
-import { ReactComponent as ExpandClosedIcon } from 'src/styling/icons/action/expand/closed.svg'
-import { ReactComponent as ExpandOpenIcon } from 'src/styling/icons/action/expand/open.svg'
 
 const useStyles = makeStyles(styles)
 

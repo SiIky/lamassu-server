@@ -1,4 +1,5 @@
-import { ALL_CRYPTOS, utils as coinUtils } from '@lamassu/coins'
+import { ALL_CRYPTOS } from '@lamassu/coins/config/consts'
+import { getEquivalentCode } from '@lamassu/coins/lightUtils'
 import * as R from 'ramda'
 
 const WARNING_LEVELS = {
@@ -31,7 +32,7 @@ const leadingZerosTest = (value, context) => {
 const buildCurrencyOptions = markets => {
   const prunedCoins = R.compose(
     R.uniq,
-    R.map(coinUtils.getEquivalentCode)
+    R.map(getEquivalentCode)
   )(ALL_CRYPTOS)
   return R.map(it => {
     const unavailableCryptos = R.difference(prunedCoins, markets[it])

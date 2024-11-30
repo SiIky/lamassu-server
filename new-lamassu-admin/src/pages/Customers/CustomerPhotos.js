@@ -2,10 +2,10 @@ import { makeStyles, Paper } from '@material-ui/core'
 import { format } from 'date-fns/fp'
 import * as R from 'ramda'
 import { React, useState } from 'react'
+import CameraIcon from 'src/styling/icons/ID/photo/comet.svg?react'
 
 import { InformativeDialog } from 'src/components/InformativeDialog'
 import { Label2, H3 } from 'src/components/typography'
-import { ReactComponent as CameraIcon } from 'src/styling/icons/ID/photo/comet.svg'
 import { URI } from 'src/utils/apollo'
 
 import styles from './CustomerPhotos.styles'

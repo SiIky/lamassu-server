@@ -1,5 +1,4 @@
 import { useQuery, useMutation } from '@apollo/react-hooks'
-import { utils as coinUtils } from '@lamassu/coins'
 import gql from 'graphql-tag'
 import * as R from 'ramda'
 import React, { useState } from 'react'
@@ -95,10 +94,7 @@ const AdvancedWallet = () => {
           stripeWhen={it => !AdvancedWalletSchema.isValidSync(it)}
           inialValues={R.of(AdvancedWalletSettings)}
           validationSchema={AdvancedWalletSchema}
-          elements={getAdvancedWalletElements(
-            coinUtils,
-            AdvancedWalletSettings
-          )}
+          elements={getAdvancedWalletElements()}
           setEditing={onEditingDefault}
           forceDisable={isEditingOverrides}
         />
@@ -118,8 +114,7 @@ const AdvancedWallet = () => {
           data={AdvancedWalletSettingsOverrides ?? []}
           elements={getAdvancedWalletElementsOverrides(
             coinSuggestions,
-            findSuggestion,
-            coinUtils
+            findSuggestion
           )}
           disableAdd={!coinSuggestions?.length}
           setEditing={onEditingOverrides}

@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
 
 import { Button } from 'src/components/buttons'
 import { H1, P, Info2 } from 'src/components/typography'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
 import { neon, spacer } from 'src/styling/variables'
 
 const styles = {

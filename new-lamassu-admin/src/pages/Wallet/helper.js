@@ -1,3 +1,4 @@
+import { getCryptoCurrency } from '@lamassu/coins/lightUtils'
 import * as R from 'ramda'
 import * as Yup from 'yup'
 
@@ -84,13 +85,13 @@ const cryptoUnitsDefaultOptions = [
   { display: 'full', code: 'full' }
 ]
 
-const getCryptoUnitsOptions = R.curry((coinUtils, it) => {
+const getCryptoUnitsOptions = it => {
   if (R.isNil(it.cryptoCurrency)) return cryptoUnitsDefaultOptions
-  const options = R.keys(coinUtils.getCryptoCurrency(it.cryptoCurrency).units)
+  const options = R.keys(getCryptoCurrency(it.cryptoCurrency).units)
   return R.map(option => {
     return { code: option, display: option }
   })(options)
-})
+}
 
 const getAdvancedWalletElements = () => {
   return [
@@ -136,8 +137,7 @@ const getAdvancedWalletElements = () => {
 
 const getAdvancedWalletElementsOverrides = (
   coinSuggestions,
-  findSuggestion,
-  coinUtils
+  findSuggestion
 ) => {
   return [
     {
@@ -159,7 +159,7 @@ const getAdvancedWalletElementsOverrides = (
       width: 190,
       input: Autocomplete,
       inputProps: {
-        options: getCryptoUnitsOptions(coinUtils),
+        options: getCryptoUnitsOptions,
         valueProp: 'code',
         labelProp: 'display'
       }

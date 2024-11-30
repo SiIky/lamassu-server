@@ -1,12 +1,12 @@
 import { makeStyles } from '@material-ui/core'
 import React from 'react'
+import CloseIcon from 'src/styling/icons/action/close/zodiac.svg?react'
+import FilterIcon from 'src/styling/icons/button/filter/white.svg?react'
+import ReverseFilterIcon from 'src/styling/icons/button/filter/zodiac.svg?react'
 
 import Chip from 'src/components/Chip'
 import { ActionButton } from 'src/components/buttons'
 import { P, Label3 } from 'src/components/typography'
-import { ReactComponent as CloseIcon } from 'src/styling/icons/action/close/zodiac.svg'
-import { ReactComponent as FilterIcon } from 'src/styling/icons/button/filter/white.svg'
-import { ReactComponent as ReverseFilterIcon } from 'src/styling/icons/button/filter/zodiac.svg'
 import { onlyFirstToUpper, singularOrPlural } from 'src/utils/string'
 
 import { chipStyles, styles } from './SearchFilter.styles'

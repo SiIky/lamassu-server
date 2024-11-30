@@ -1,5 +1,5 @@
 import { useLazyQuery, useMutation } from '@apollo/react-hooks'
-import { utils as coinUtils } from '@lamassu/coins'
+import { toUnit, formatCryptoAddress } from '@lamassu/coins/lightUtils'
 import { makeStyles, Box } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import classNames from 'classnames'
@@ -9,23 +9,23 @@ import gql from 'graphql-tag'
 import JSZip from 'jszip'
 import * as R from 'ramda'
 import React, { memo, useState } from 'react'
+import CardIdInverseIcon from 'src/styling/icons/ID/card/white.svg?react'
+import CardIdIcon from 'src/styling/icons/ID/card/zodiac.svg?react'
+import PhoneIdInverseIcon from 'src/styling/icons/ID/phone/white.svg?react'
+import PhoneIdIcon from 'src/styling/icons/ID/phone/zodiac.svg?react'
+import CamIdInverseIcon from 'src/styling/icons/ID/photo/white.svg?react'
+import CamIdIcon from 'src/styling/icons/ID/photo/zodiac.svg?react'
+import CancelInverseIcon from 'src/styling/icons/button/cancel/white.svg?react'
+import CancelIcon from 'src/styling/icons/button/cancel/zodiac.svg?react'
+import DownloadInverseIcon from 'src/styling/icons/button/download/white.svg?react'
+import Download from 'src/styling/icons/button/download/zodiac.svg?react'
+import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
 
 import { ConfirmDialog } from 'src/components/ConfirmDialog'
 import { HelpTooltip } from 'src/components/Tooltip'
 import { IDButton, ActionButton } from 'src/components/buttons'
 import { P, Label1 } from 'src/components/typography'
-import { ReactComponent as CardIdInverseIcon } from 'src/styling/icons/ID/card/white.svg'
-import { ReactComponent as CardIdIcon } from 'src/styling/icons/ID/card/zodiac.svg'
-import { ReactComponent as PhoneIdInverseIcon } from 'src/styling/icons/ID/phone/white.svg'
-import { ReactComponent as PhoneIdIcon } from 'src/styling/icons/ID/phone/zodiac.svg'
-import { ReactComponent as CamIdInverseIcon } from 'src/styling/icons/ID/photo/white.svg'
-import { ReactComponent as CamIdIcon } from 'src/styling/icons/ID/photo/zodiac.svg'
-import { ReactComponent as CancelInverseIcon } from 'src/styling/icons/button/cancel/white.svg'
-import { ReactComponent as CancelIcon } from 'src/styling/icons/button/cancel/zodiac.svg'
-import { ReactComponent as DownloadInverseIcon } from 'src/styling/icons/button/download/white.svg'
-import { ReactComponent as Download } from 'src/styling/icons/button/download/zodiac.svg'
-import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
 import {
   primaryColor,
   subheaderColor,
@@ -87,12 +87,10 @@ const CANCEL_CASH_IN_TRANSACTION = gql`
 `
 
 const getCryptoAmount = tx =>
-  coinUtils.toUnit(new BigNumber(tx.cryptoAtoms), tx.cryptoCode).toNumber()
+  toUnit(new BigNumber(tx.cryptoAtoms), tx.cryptoCode).toNumber()
 
 const getCryptoFeeAmount = tx => {
-  const feeAmount = coinUtils
-    .toUnit(new BigNumber(tx.fee), tx.cryptoCode)
-    .toNumber()
+  const feeAmount = toUnit(new BigNumber(tx.fee), tx.cryptoCode).toNumber()
 
   return new BigNumber(feeAmount)
     .times(tx.rawTickerPrice)
@@ -101,7 +99,7 @@ const getCryptoFeeAmount = tx => {
 }
 
 const formatAddress = (cryptoCode = '', address = '') =>
-  coinUtils.formatCryptoAddress(cryptoCode, address).replace(/(.{5})/g, '$1 ')
+  formatCryptoAddress(cryptoCode, address).replace(/(.{5})/g, '$1 ')
 
 const Label = ({ children }) => {
   const classes = useStyles()

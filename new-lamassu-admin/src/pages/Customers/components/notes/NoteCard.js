@@ -1,9 +1,9 @@
 import { makeStyles, Paper } from '@material-ui/core'
 import * as R from 'ramda'
 import { React } from 'react'
+import DeleteIcon from 'src/styling/icons/action/delete/enabled.svg?react'
 
 import { H3, P } from 'src/components/typography'
-import { ReactComponent as DeleteIcon } from 'src/styling/icons/action/delete/enabled.svg'
 import { formatDate } from 'src/utils/timezones'
 
 import styles from './NoteCard.styles'

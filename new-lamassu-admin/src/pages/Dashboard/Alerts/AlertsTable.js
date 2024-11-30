@@ -4,12 +4,12 @@ import ListItem from '@material-ui/core/ListItem'
 import * as R from 'ramda'
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import Wrench from 'src/styling/icons/action/wrench/zodiac.svg?react'
+import CashBoxEmpty from 'src/styling/icons/cassettes/cashbox-empty.svg?react'
+import AlertLinkIcon from 'src/styling/icons/month arrows/right.svg?react'
+import WarningIcon from 'src/styling/icons/warning-icon/tomato.svg?react'
 
 import { P } from 'src/components/typography/index'
-import { ReactComponent as Wrench } from 'src/styling/icons/action/wrench/zodiac.svg'
-import { ReactComponent as CashBoxEmpty } from 'src/styling/icons/cassettes/cashbox-empty.svg'
-import { ReactComponent as AlertLinkIcon } from 'src/styling/icons/month arrows/right.svg'
-import { ReactComponent as WarningIcon } from 'src/styling/icons/warning-icon/tomato.svg'
 
 import styles from './Alerts.styles'
 const useStyles = makeStyles(styles)

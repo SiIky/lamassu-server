@@ -29,8 +29,8 @@ import { backgroundColor, mainWidth } from 'src/styling/variables'
 import ApolloProvider from 'src/utils/apollo'
 
 if (process.env.NODE_ENV !== 'production') {
-  const whyDidYouRender = require('@welldone-software/why-did-you-render')
-  whyDidYouRender(React)
+  // const whyDidYouRender = require('@welldone-software/why-did-you-render')
+  // whyDidYouRender(React)
 }
 
 const jss = create({

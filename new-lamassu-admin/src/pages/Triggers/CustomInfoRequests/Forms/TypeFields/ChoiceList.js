@@ -3,13 +3,13 @@ import classnames from 'classnames'
 import { Field, useFormikContext, FieldArray } from 'formik'
 import * as R from 'ramda'
 import React, { useEffect, useRef } from 'react'
+import AddIconInverse from 'src/styling/icons/button/add/white.svg?react'
+import AddIcon from 'src/styling/icons/button/add/zodiac.svg?react'
 
 import Button from 'src/components/buttons/ActionButton'
 import RadioGroup from 'src/components/inputs/formik/RadioGroup'
 import TextInput from 'src/components/inputs/formik/TextInput'
 import { H4 } from 'src/components/typography'
-import { ReactComponent as AddIconInverse } from 'src/styling/icons/button/add/white.svg'
-import { ReactComponent as AddIcon } from 'src/styling/icons/button/add/zodiac.svg'
 
 import styles from './formStyles.styles'
 const useStyles = makeStyles(styles)

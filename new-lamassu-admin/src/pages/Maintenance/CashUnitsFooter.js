@@ -2,10 +2,10 @@ import { makeStyles } from '@material-ui/core'
 import BigNumber from 'bignumber.js'
 import * as R from 'ramda'
 import React from 'react'
+import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
+import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
 
 import { Info1, Info2, Info3 } from 'src/components/typography/index'
-import { ReactComponent as TxInIcon } from 'src/styling/icons/direction/cash-in.svg'
-import { ReactComponent as TxOutIcon } from 'src/styling/icons/direction/cash-out.svg'
 import { fromNamespace } from 'src/utils/config'
 import { numberToFiatAmount } from 'src/utils/number.js'
 

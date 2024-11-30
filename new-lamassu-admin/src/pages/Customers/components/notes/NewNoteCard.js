@@ -1,9 +1,9 @@
 import { makeStyles, Paper } from '@material-ui/core'
 import classNames from 'classnames'
 import { React } from 'react'
+import AddIcon from 'src/styling/icons/button/add/zodiac.svg?react'
 
 import { P } from 'src/components/typography'
-import { ReactComponent as AddIcon } from 'src/styling/icons/button/add/zodiac.svg'
 
 import styles from './NoteCard.styles'
 

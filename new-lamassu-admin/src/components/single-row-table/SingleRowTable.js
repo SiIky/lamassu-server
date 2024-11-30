@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core'
 import classnames from 'classnames'
 import React from 'react'
+import EditIcon from 'src/styling/icons/action/edit/white.svg?react'
 
 import { IconButton } from 'src/components/buttons'
 import {
@@ -11,7 +12,6 @@ import {
   Th,
   Tr
 } from 'src/components/fake-table/Table'
-import { ReactComponent as EditIcon } from 'src/styling/icons/action/edit/white.svg'
 
 import styles from './SingleRowTable.styles'
 
