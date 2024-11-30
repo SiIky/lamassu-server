@@ -1,8 +1,7 @@
 import * as R from 'ramda'
-import * as Yup from 'yup'
-
-import Autocomplete from 'src/components/inputs/formik/Autocomplete.js'
+import Autocomplete from 'src/components/inputs/formik/Autocomplete'
 import { getView } from 'src/pages/Triggers/helper'
+import * as Yup from 'yup'
 
 const buildAdvancedRequirementOptions = customInfoRequests => {
   const base = [
