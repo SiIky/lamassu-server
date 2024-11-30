@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Dev Environment
 
 ### formatting
@@ -10,11 +8,6 @@ The configuration for vscode is already on the repo, all you need to do is insta
 This project has a husky pre commit hook to format the staged changes using our styleguide.
 To take advantage of that make sure to run `git commit` from within this folder.
 
-### Sanctuary
-
-Sanctuary has a runtime typechecker that can make be quite slow, but its turned off by default.
-
-To turn it on add the following line to a `.env.local` file.
 
 ```
 REACT_APP_TYPE_CHECK_SANCTUARY=true
