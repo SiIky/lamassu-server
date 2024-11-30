@@ -9,11 +9,9 @@ import { useHistory, useLocation } from 'react-router-dom'
 
 import AppContext from 'src/AppContext'
 
-const URI = ''
-
 const uploadLink = createUploadLink({
   credentials: 'include',
-  uri: `${URI}/graphql`
+  uri: `/graphql`
 })
 
 const getClient = (history, location, getUserData, setUserData, setRole) =>
@@ -81,4 +79,3 @@ const Provider = ({ children }) => {
 }
 
 export default Provider
-export { URI }

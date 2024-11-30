@@ -12,7 +12,6 @@ import CustomerListViewReversedIcon from 'src/styling/icons/circle buttons/custo
 import CustomerListViewIcon from 'src/styling/icons/circle buttons/customer-list-view/zodiac.svg?react'
 import OverviewReversedIcon from 'src/styling/icons/circle buttons/overview/white.svg?react'
 import OverviewIcon from 'src/styling/icons/circle buttons/overview/zodiac.svg?react'
-import { URI } from 'src/utils/apollo'
 import * as Yup from 'yup'
 
 import { FeatureButton } from 'src/components/buttons'
@@ -264,7 +263,7 @@ const CustomerData = ({
             src={
               !R.isNil(previewPhoto)
                 ? URL.createObjectURL(previewPhoto)
-                : `${URI}/front-camera-photo/${R.path(['frontCameraPath'])(
+                : `/front-camera-photo/${R.path(['frontCameraPath'])(
                     customer
                   )}`
             }
@@ -305,7 +304,7 @@ const CustomerData = ({
             src={
               !R.isNil(previewCard)
                 ? URL.createObjectURL(previewCard)
-                : `${URI}/id-card-photo/${R.path(['idCardPhotoPath'])(
+                : `/id-card-photo/${R.path(['idCardPhotoPath'])(
                     customer
                   )}`
             }

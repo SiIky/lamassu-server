@@ -6,7 +6,6 @@ import gql from 'graphql-tag'
 import React, { useState, useEffect } from 'react'
 import Modal from 'src/components/Modal'
 import { H3, P } from 'src/components/typography'
-import { URI } from 'src/utils/apollo'
 
 import { Button } from 'src/components/buttons'
 
@@ -92,7 +91,7 @@ const DiagnosticsModal = ({ onClose, deviceId, sendAction }) => {
     }
   }, [data, stopPolling, timeout, timestamp])
 
-  const path = `${URI}/operator-data/diagnostics/${deviceId}/`
+  const path = `/operator-data/diagnostics/${deviceId}/`
 
   function runDiagnostics() {
     startPolling(2000)

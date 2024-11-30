@@ -2,7 +2,6 @@ import { makeStyles, Box } from '@material-ui/core'
 import * as R from 'ramda'
 import React, { memo } from 'react'
 import CrossedCameraIcon from 'src/styling/icons/ID/photo/crossed-camera.svg?react'
-import { URI } from 'src/utils/apollo'
 
 import {
   PropertyCard,
@@ -39,7 +38,7 @@ const IdCardPhotoCard = memo(({ customerData, updateCustomer }) => {
         {customerData.idCardPhotoPath ? (
           <img
             className={classes.idCardPhoto}
-            src={`${URI}/id-card-photo/${R.path(['idCardPhotoPath'])(
+            src={`/id-card-photo/${R.path(['idCardPhotoPath'])(
               customerData
             )}`}
             alt=""

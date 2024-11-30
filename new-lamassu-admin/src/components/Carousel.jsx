@@ -3,7 +3,6 @@ import React, { memo } from 'react'
 import ReactCarousel from 'react-material-ui-carousel'
 import LeftArrow from 'src/styling/icons/arrow/carousel-left-arrow.svg?react'
 import RightArrow from 'src/styling/icons/arrow/carousel-right-arrow.svg?react'
-import { URI } from 'src/utils/apollo'
 
 const useStyles = makeStyles({
   imgWrapper: {
@@ -52,7 +51,7 @@ export const Carousel = memo(({ photosData, slidePhoto }) => {
             <div className={classes.imgWrapper}>
               <img
                 className={classes.imgInner}
-                src={`${URI}/${item?.photoDir}/${item?.path}`}
+                src={`/${item?.photoDir}/${item?.path}`}
                 alt=""
               />
             </div>

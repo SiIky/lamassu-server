@@ -24,7 +24,6 @@ import DownloadInverseIcon from 'src/styling/icons/button/download/white.svg?rea
 import Download from 'src/styling/icons/button/download/zodiac.svg?react'
 import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
 import TxOutIcon from 'src/styling/icons/direction/cash-out.svg?react'
-import { URI } from 'src/utils/apollo'
 
 import { IDButton, ActionButton } from 'src/components/buttons'
 import {
@@ -275,7 +274,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
                 InverseIcon={CardIdInverseIcon}>
                 <img
                   className={classes.idCardPhoto}
-                  src={`${URI}/id-card-photo/${tx.customerIdCardPhotoPath}`}
+                  src={`/id-card-photo/${tx.customerIdCardPhotoPath}`}
                   alt=""
                 />
               </IDButton>
@@ -321,7 +320,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
                 Icon={CamIdIcon}
                 InverseIcon={CamIdInverseIcon}>
                 <img
-                  src={`${URI}/front-camera-photo/${tx.customerFrontCameraPath}`}
+                  src={`/front-camera-photo/${tx.customerFrontCameraPath}`}
                   alt=""
                 />
               </IDButton>
@@ -332,7 +331,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
                 Icon={CamIdIcon}
                 InverseIcon={CamIdInverseIcon}>
                 <img
-                  src={`${URI}/operator-data/customersphotos/${tx.txCustomerPhotoPath}`}
+                  src={`/operator-data/customersphotos/${tx.txCustomerPhotoPath}`}
                   alt=""
                 />
               </IDButton>

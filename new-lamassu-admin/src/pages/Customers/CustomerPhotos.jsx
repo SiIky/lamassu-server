@@ -5,7 +5,6 @@ import { React, useState } from 'react'
 import { InformativeDialog } from 'src/components/InformativeDialog'
 import { Label2, H3 } from 'src/components/typography'
 import CameraIcon from 'src/styling/icons/ID/photo/comet.svg?react'
-import { URI } from 'src/utils/apollo'
 
 import styles from './CustomerPhotos.styles'
 import PhotosCarousel from './components/PhotosCarousel'
@@ -31,7 +30,7 @@ const CustomerPhotos = ({ photosData, timezone }) => {
           <PhotoCard
             idx={idx}
             date={elem.date}
-            src={`${URI}/${elem.photoDir}/${elem.path}`}
+            src={`/${elem.photoDir}/${elem.path}`}
             setPhotosDialog={setPhotosDialog}
             setPhotoClickIndex={setPhotoClickIndex}
           />

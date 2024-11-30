@@ -6,7 +6,6 @@ import React, { memo, useState } from 'react'
 import { InformativeDialog } from 'src/components/InformativeDialog'
 import { Info2 } from 'src/components/typography'
 import CrossedCameraIcon from 'src/styling/icons/ID/photo/crossed-camera.svg?react'
-import { URI } from 'src/utils/apollo'
 
 import styles from './PhotosCard.styles'
 import PhotosCarousel from './PhotosCarousel'
@@ -38,7 +37,7 @@ const PhotosCard = memo(({ photosData, timezone }) => {
             <div className={classes.container}>
               <img
                 className={classes.img}
-                src={`${URI}/${singlePhoto.photoDir}/${singlePhoto.path}`}
+                src={`/${singlePhoto.photoDir}/${singlePhoto.path}`}
                 alt=""
               />
               <circle className={classes.circle}>
