@@ -1,10 +1,9 @@
 import { fileURLToPath } from 'url'
 
-import { defineConfig, transformWithEsbuild } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import svgr from 'vite-plugin-svgr'
 import fixReactVirtualized from 'esbuild-plugin-react-virtualized'
-import serveStatic from 'serve-static'
 
 export default defineConfig({
   base: '/',
