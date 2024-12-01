@@ -15,7 +15,7 @@ const buildTestValidation = (id, passphrase) => {
     .max(100, 'Too long')
     .when(id, {
       is: isDefined,
-      then: Yup.string().test(secretTest(passphrase))
+      then: schema => schema.test(secretTest(passphrase))
     })
 }
 

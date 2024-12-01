@@ -484,24 +484,22 @@ const requirementSchema = Yup.object()
       requirement: Yup.string().required(),
       suspensionDays: Yup.number().when('requirement', {
         is: value => value === 'suspend',
-        then: Yup.number()
+        then: schema => schema
           .nullable()
           .transform(transformNumber),
-        otherwise: Yup.number()
+        otherwise: schema => schema
           .nullable()
           .transform(() => null)
       }),
       customInfoRequestId: Yup.string().when('requirement', {
-        is: value => value === 'custom',
-        then: Yup.string(),
-        otherwise: Yup.string()
+        is: value => value !== 'custom',
+        then: schema => schema
           .nullable()
           .transform(() => '')
       }),
       externalService: Yup.string().when('requirement', {
-        is: value => value === 'external',
-        then: Yup.string(),
-        otherwise: Yup.string()
+        is: value => value !== 'external',
+        then: schema => schema
           .nullable()
           .transform(() => '')
       })

@@ -65,7 +65,7 @@ const CryptoBalanceOverrides = ({ section }) => {
         .label('Low balance')
         .when(HIGH_BALANCE_KEY, {
           is: HIGH_BALANCE_KEY => !HIGH_BALANCE_KEY,
-          then: Yup.number().required()
+          then: schema => schema.required()
         })
         .transform(transformNumber)
         .integer()
@@ -76,7 +76,7 @@ const CryptoBalanceOverrides = ({ section }) => {
         .label('High balance')
         .when(LOW_BALANCE_KEY, {
           is: LOW_BALANCE_KEY => !LOW_BALANCE_KEY,
-          then: Yup.number().required()
+          then: schema => schema.required()
         })
         .transform(transformNumber)
         .integer()

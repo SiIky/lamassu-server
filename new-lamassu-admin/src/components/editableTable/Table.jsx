@@ -75,7 +75,7 @@ const ETable = ({
 
     setSaving(true)
 
-    const it = validationSchema.cast(value)
+    const it = validationSchema.cast(value, { assert: 'ignore-optionality'})
     const index = R.findIndex(R.propEq('id', it.id))(data)
     const list = index !== -1 ? R.update(index, it, data) : R.prepend(it, data)
 
