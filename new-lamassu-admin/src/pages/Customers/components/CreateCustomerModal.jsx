@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 import { Field, Form, Formik } from 'formik'
-import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber'
+import { parsePhoneNumberWithError } from 'libphonenumber-js'
 import * as R from 'ramda'
 import React from 'react'
 import ErrorMessage from 'src/components/ErrorMessage'
@@ -33,8 +33,6 @@ const styles = {
   }
 }
 
-const pnUtilInstance = PhoneNumberUtil.getInstance()
-
 const getValidationSchema = countryCodes =>
   Yup.object().shape({
     phoneNumber: Yup.string()
@@ -42,8 +40,8 @@ const getValidationSchema = countryCodes =>
       .test('is-valid-number', 'That is not a valid phone number', value => {
         try {
           const validMap = R.map(it => {
-            const number = pnUtilInstance.parseAndKeepRawInput(value, it)
-            return pnUtilInstance.isValidNumber(number)
+            const number = parsePhoneNumberWithError(value, it)
+            return number.isValid()
           }, countryCodes)
 
           return R.any(it => it === true, validMap)
@@ -54,16 +52,11 @@ const getValidationSchema = countryCodes =>
 
 const formatPhoneNumber = (countryCodes, numberStr) => {
   const matchedCountry = R.find(it => {
-    const number = pnUtilInstance.parseAndKeepRawInput(numberStr, it)
-    return pnUtilInstance.isValidNumber(number)
+    const number = parsePhoneNumberWithError(numberStr, it)
+    return number.isValid()
   }, countryCodes)
 
-  const matchedNumber = pnUtilInstance.parseAndKeepRawInput(
-    numberStr,
-    matchedCountry
-  )
-
-  return pnUtilInstance.format(matchedNumber, PhoneNumberFormat.E164)
+  return parsePhoneNumberWithError(numberStr, matchedCountry).number
 }
 
 const initialValues = {
