@@ -1,4 +1,3 @@
-import * as _ from 'lodash/fp'
 import * as R from 'ramda'
 import React from 'react'
 import TxInIcon from 'src/styling/icons/direction/cash-in.svg?react'
@@ -442,7 +441,7 @@ const getCommissions = (cryptoCode, deviceId, config) => {
   }
 
   const specificOverride = R.find(
-    it => it.machine === deviceId && _.includes(cryptoCode)(it.cryptoCurrencies)
+    it => it.machine === deviceId && R.includes(cryptoCode)(it.cryptoCurrencies)
   )(overrides)
 
   if (specificOverride !== undefined)
@@ -450,7 +449,7 @@ const getCommissions = (cryptoCode, deviceId, config) => {
 
   const machineOverride = R.find(
     it =>
-      it.machine === deviceId && _.includes('ALL_COINS')(it.cryptoCurrencies)
+      it.machine === deviceId && R.includes('ALL_COINS')(it.cryptoCurrencies)
   )(overrides)
 
   if (machineOverride !== undefined)
@@ -459,7 +458,7 @@ const getCommissions = (cryptoCode, deviceId, config) => {
   const coinOverride = R.find(
     it =>
       it.machine === 'ALL_MACHINES' &&
-      _.includes(cryptoCode)(it.cryptoCurrencies)
+      R.includes(cryptoCode)(it.cryptoCurrencies)
   )(overrides)
 
   if (coinOverride !== undefined)
