@@ -28,11 +28,6 @@ import global from 'src/styling/global'
 import theme from 'src/styling/theme'
 import { backgroundColor, mainWidth } from 'src/styling/variables'
 
-if (process.env.NODE_ENV !== 'production') {
-  // const whyDidYouRender = require('@welldone-software/why-did-you-render')
-  // whyDidYouRender(React)
-}
-
 const jss = create({
   plugins: [extendJss(), ...jssPreset().plugins]
 })
