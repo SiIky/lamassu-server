@@ -1,4 +1,4 @@
-import { ALL_CRYPTOS } from '@lamassu/coins'
+import { ALL_CRYPTOS, utils as coinUtils } from '@lamassu/coins'
 import * as R from 'ramda'
 
 const WARNING_LEVELS = {
@@ -29,8 +29,12 @@ const leadingZerosTest = (value, context) => {
 }
 
 const buildCurrencyOptions = markets => {
+  const prunedCoins = R.compose(
+    R.uniq,
+    R.map(coinUtils.getEquivalentCode)
+  )(ALL_CRYPTOS)
   return R.map(it => {
-    const unavailableCryptos = R.difference(ALL_CRYPTOS, markets[it])
+    const unavailableCryptos = R.difference(prunedCoins, markets[it])
     const unavailableCryptosFiltered = R.difference(unavailableCryptos, [it]) // As the markets can have stablecoins to trade against other crypto, filter them out, as there can't be pairs such as USDT/USDT
 
     const unavailableMarketsStr =
@@ -44,7 +48,7 @@ const buildCurrencyOptions = markets => {
     const warningLevel = R.isEmpty(unavailableCryptosFiltered)
       ? WARNING_LEVELS.CLEAN
       : !R.isEmpty(unavailableCryptosFiltered) &&
-        R.length(unavailableCryptosFiltered) < R.length(ALL_CRYPTOS)
+        R.length(unavailableCryptosFiltered) < R.length(prunedCoins)
       ? WARNING_LEVELS.PARTIAL
       : WARNING_LEVELS.IMPORTANT
 
