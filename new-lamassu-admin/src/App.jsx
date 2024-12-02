@@ -120,12 +120,11 @@ const Main = () => {
             in={true}
             mountOnEnter
             unmountOnExit
-            children={
+          >
               <div>
                 <TitleSection title={parent.title}></TitleSection>
               </div>
-            }
-          />
+          </Slide>
         )}
 
         <Grid container className={classes.grid}>

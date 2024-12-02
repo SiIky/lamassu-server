@@ -50,7 +50,7 @@ const Graph = ({
 
     const step = R.clone(start)
 
-    // eslint-disable-next-line no-unmodified-loop-condition
+     
     while (step <= end) {
       ticks.push(R.clone(step))
       step.setUTCHours(step.getUTCHours() + interval)

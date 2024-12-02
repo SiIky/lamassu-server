@@ -47,7 +47,7 @@ export const Carousel = memo(({ photosData, slidePhoto }) => {
         next={activeIndex => slidePhoto(activeIndex)}
         prev={activeIndex => slidePhoto(activeIndex)}>
         {photosData.map((item, i) => (
-          <div>
+          <div key={i}>
             <div className={classes.imgWrapper}>
               <img
                 className={classes.imgInner}

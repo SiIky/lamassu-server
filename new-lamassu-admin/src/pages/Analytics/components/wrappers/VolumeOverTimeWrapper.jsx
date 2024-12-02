@@ -34,7 +34,7 @@ const VolumeOverTimeGraphHeader = ({
           stroke={java}
           strokeWidth="3"
           d="M 3 6 l 12 0"
-          stroke-linecap="round"
+          strokeLinecap="round"
         />
       </svg>
     ),
@@ -44,7 +44,7 @@ const VolumeOverTimeGraphHeader = ({
           stroke={neon}
           strokeWidth="3"
           d="M 3 6 l 12 0"
-          stroke-linecap="round"
+          strokeLinecap="round"
         />
       </svg>
     )
