@@ -259,16 +259,16 @@ const EditableCard = ({
                   {!editing && (
                     <div className={classes.editButton}>
                       <div className={classes.deleteButton}>
-                        {false && (
-                          <ActionButton
-                            color="primary"
-                            type="button"
-                            Icon={DeleteIcon}
-                            InverseIcon={DeleteReversedIcon}
-                            onClick={() => deleteEditedData()}>
-                            Delete
-                          </ActionButton>
-                        )}
+                        {/*{false && (*/}
+                        {/*  <ActionButton*/}
+                        {/*    color="primary"*/}
+                        {/*    type="button"*/}
+                        {/*    Icon={DeleteIcon}*/}
+                        {/*    InverseIcon={DeleteReversedIcon}*/}
+                        {/*    onClick={() => deleteEditedData()}>*/}
+                        {/*    Delete*/}
+                        {/*  </ActionButton>*/}
+                        {/*)}*/}
                         {!hasAdditionalData && (
                           <ActionButton
                             color="primary"

@@ -58,16 +58,15 @@ const CustomerNotes = ({
       {R.isNil(editing) && (
         <div className={classes.notesChipList}>
           <NewNoteCard setOpenModal={setOpenModal} />
-          {R.map(
-            it => (
+          {customerNotes.map((it, idx) => (
               <NoteCard
+                key={idx}
                 note={it}
                 deleteNote={deleteNote}
                 handleClick={setEditing}
                 timezone={timezone}
               />
-            ),
-            customerNotes
+            )
           )}
         </div>
       )}

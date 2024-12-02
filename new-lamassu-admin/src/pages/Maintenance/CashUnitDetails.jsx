@@ -106,12 +106,12 @@ const CashUnitDetails = ({
       <div className={classes.billList}>
         <Label1>Cash box</Label1>
         {R.isEmpty(billCount) && <TL2 noMargin>Empty</TL2>}
-        {R.map(it => (
-          <span>
+        {(R.keys(billCount)).map((it, idx) => (
+          <span key={idx}>
             <TL2 noMargin>{billCount[it]}</TL2>
             <Chip label={`${it} ${currency}`} />
           </span>
-        ))(R.keys(billCount))}
+        ))}
       </div>
       <div className={classes.unitList}>
         {machine.numberOfRecyclers === 0 &&
@@ -149,8 +149,9 @@ const CashUnitDetails = ({
                 noMargin
                 className={classes.label}>{`Loading boxes`}</Label1>
               <div className={classes.loadingBoxes}>
-                {R.map(it => (
+                {(R.range(1, machine.numberOfCassettes + 1)).map((it, idx) => (
                   <CashOut
+                    key={idx}
                     width={60}
                     height={40}
                     currency={{ code: currency }}
@@ -167,7 +168,7 @@ const CashUnitDetails = ({
                     }
                     capacity={getCashUnitCapacity(machine.model, 'cassette')}
                   />
-                ))(R.range(1, machine.numberOfCassettes + 1))}
+                ))}
               </div>
             </div>
             <span className={classes.verticalLine} />

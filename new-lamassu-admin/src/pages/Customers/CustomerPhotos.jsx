@@ -28,7 +28,7 @@ const CustomerPhotos = ({ photosData, timezone }) => {
       <div className={classes.photosChipList}>
         {photosData.map((elem, idx) => (
           <PhotoCard
-            idx={idx}
+            key={idx}
             date={elem.date}
             src={`/${elem.photoDir}/${elem.path}`}
             setPhotosDialog={setPhotosDialog}

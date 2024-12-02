@@ -1,3 +1,4 @@
+import React from 'react'
 import { makeStyles, Box } from '@material-ui/core'
 import classnames from 'classnames'
 import { parse, isValid, format } from 'date-fns/fp'
@@ -325,8 +326,9 @@ const ManualDataEntry = ({ selectedValues, customInfoRequirementOptions }) => {
       <div className={classes.field}>
         {!upload &&
           !isCustomInfoRequirement &&
-          elements.options.map(({ label, name }) => (
+          elements.options.map(({ label, name }, idx) => (
             <Field
+              key={idx}
               name={name}
               label={label}
               component={TextInput}

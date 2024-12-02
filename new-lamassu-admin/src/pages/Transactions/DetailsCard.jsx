@@ -202,9 +202,9 @@ const DetailsRow = ({ it: tx, timezone }) => {
   const walletScoreEl = (
     <div className={classes.walletScore}>
       <svg width={103} height={10}>
-        {R.map(
-          it => (
+        {R.range(0, 10).map((it, idx) => (
             <circle
+              key={idx}
               cx={it * 10 + 6}
               cy={4}
               r={3.5}
@@ -218,8 +218,7 @@ const DetailsRow = ({ it: tx, timezone }) => {
                   : offErrorColor
               }
             />
-          ),
-          R.range(0, 10)
+          )
         )}
       </svg>
       <P

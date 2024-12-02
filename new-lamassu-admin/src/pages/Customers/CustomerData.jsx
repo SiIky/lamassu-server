@@ -485,7 +485,6 @@ const CustomerData = ({
         hasImage={hasImage}
         hasAdditionalData={hasAdditionalData}
         fields={fields}
-        children={children}
         validationSchema={validationSchema}
         initialValues={initialValues}
         save={save}
@@ -493,7 +492,7 @@ const CustomerData = ({
         deleteEditedData={deleteEditedData}
         retrieveAdditionalData={retrieveAdditionalData}
         checkAgainstSanctions={checkAgainstSanctions}
-        editable={editable}></EditableCard>
+        editable={editable}>{children}</EditableCard>
     )
   }
 
@@ -506,12 +505,11 @@ const CustomerData = ({
         title={title}
         key={idx}
         state={state}
-        children={children}
         initialValues={initialValues}
         titleIcon={titleIcon}
         editable={false}
         hasImage={hasImage}
-        fields={fields}></EditableCard>
+        fields={fields}>{children}</EditableCard>
     )
   }
 
@@ -522,23 +520,24 @@ const CustomerData = ({
       <div className={classes.header}>
         <H3 className={classes.title}>{'Customer data'}</H3>
         {// TODO: Remove false condition for next release
-        false && (
-          <>
-            <FeatureButton
-              active={!listView}
-              className={classes.viewIcons}
-              Icon={OverviewIcon}
-              InverseIcon={OverviewReversedIcon}
-              onClick={() => setListView(false)}
-            />
-            <FeatureButton
-              active={listView}
-              className={classes.viewIcons}
-              Icon={CustomerListViewIcon}
-              InverseIcon={CustomerListViewReversedIcon}
-              onClick={() => setListView(true)}></FeatureButton>
-          </>
-        )}
+        // false && (
+        //   <>
+        //     <FeatureButton
+        //       active={!listView}
+        //       className={classes.viewIcons}
+        //       Icon={OverviewIcon}
+        //       InverseIcon={OverviewReversedIcon}
+        //       onClick={() => setListView(false)}
+        //     />
+        //     <FeatureButton
+        //       active={listView}
+        //       className={classes.viewIcons}
+        //       Icon={CustomerListViewIcon}
+        //       InverseIcon={CustomerListViewReversedIcon}
+        //       onClick={() => setListView(true)}></FeatureButton>
+        //   </>
+        // )
+        }
       </div>
       <div>
         {!listView && customer && (

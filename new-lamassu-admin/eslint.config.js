@@ -13,13 +13,20 @@ export default [
         process: 'readonly'
       }
     },
+    settings: {
+      react: {
+        version: '16'
+      }
+    }
   },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
     rules: {
       'react/prop-types': 'off',
-      'react/display-name': 'off'
+      'react/display-name': 'off',
+      'react/no-unescaped-entities': 'off',
+      'no-unused-vars': 'off',
     }
   }
 ]

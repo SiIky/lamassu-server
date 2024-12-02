@@ -165,8 +165,9 @@ const ECol = ({ editing, focus, config, extraPaddingRight, extraPadding }) => {
 
   return (
     <div className={classes.fields}>
-      {R.map(f => (
+      {fields.map((f, idx) => (
         <Td
+          key={idx}
           className={{
             [classes.extraPaddingRight]: extraPaddingRight,
             [classes.extraPadding]: extraPadding,
@@ -204,7 +205,7 @@ const ECol = ({ editing, focus, config, extraPaddingRight, extraPadding }) => {
           )}
           {isHidden(values) && <StripesSvg />}
         </Td>
-      ))(fields)}
+      ))}
     </div>
   )
 }

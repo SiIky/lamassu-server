@@ -120,12 +120,11 @@ const Routes = () => {
           in={true}
           mountOnEnter
           unmountOnExit
-          children={
+        >
             <div className={classes.wrapper}>
               <Dashboard />
             </div>
-          }
-        />
+        </Transition>
       </PrivateRoute>
       <PrivateRoute path="/machines" component={Machines} />
       <PrivateRoute path="/wizard" component={Wizard} />
@@ -141,19 +140,18 @@ const Routes = () => {
             in={!!matchPath(location.pathname, { path: route })}
             mountOnEnter
             unmountOnExit
-            children={
-              <div className={classes.wrapper}>
-                <PrivateRoute path={route} key={key}>
-                  <Page name={key} />
-                </PrivateRoute>
-              </div>
-            }
-          />
+          >
+            <div className={classes.wrapper}>
+              <PrivateRoute path={route} key={key}>
+                <Page name={key}/>
+              </PrivateRoute>
+            </div>
+          </Transition>
         </PrivateRoute>
-      ))}
-      <PublicRoute path="/404" />
+        ))}
+      <PublicRoute path="/404"/>
       <PublicRoute path="*">
-        <Redirect to={{ pathname: '/404' }} />
+        <Redirect to={{ pathname: '/404' }}/>
       </PublicRoute>
     </Switch>
   )

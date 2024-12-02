@@ -45,7 +45,9 @@ const getValidationSchema = countryCodes =>
           }, countryCodes)
 
           return R.any(it => it === true, validMap)
-        } catch (e) {}
+        } catch (e) {
+          return false
+        }
       })
       .trim()
   })

@@ -1,3 +1,4 @@
+import React from 'react'
 import * as R from 'ramda'
 import { CashIn, CashOutLite } from 'src/components/inputs/cashbox/Cashbox'
 import EditIcon from 'src/styling/icons/action/edit/enabled.svg?react'
@@ -56,8 +57,9 @@ const getElements = (
         return (
           <div className={classes.unitsRow}>
             <div className={classes.units}>
-              {R.map(it => (
+              {(R.range(1, m.numberOfCassettes + 1)).map((it, idx) => (
                 <CashOutLite
+                  key={idx}
                   width={'100%'}
                   currency={{ code: fiatCurrency }}
                   notes={m.cashUnits[`cassette${it}`]}
@@ -69,7 +71,7 @@ const getElements = (
                   }
                   capacity={getCashUnitCapacity(m.model, 'cassette')}
                 />
-              ))(R.range(1, m.numberOfCassettes + 1))}
+              ))}
             </div>
             <div className={classes.units}>
               {R.map(it => (

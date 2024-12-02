@@ -45,8 +45,9 @@ const CustomerSidebar = ({ isSelected, onClick }) => {
 
   return (
     <div className={classes.sidebar}>
-      {sideBarOptions?.map(({ Icon, InverseIcon, display, code }) => (
+      {sideBarOptions?.map(({ Icon, InverseIcon, display, code }, idx) => (
         <div
+          key={idx}
           className={classnames({
             [classes.activeLink]: isSelected(code),
             [classes.link]: true

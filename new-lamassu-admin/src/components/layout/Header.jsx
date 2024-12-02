@@ -141,7 +141,7 @@ const Header = memo(({ tree, user }) => {
                     className={classnames(classes.link, classes.whiteLink)}
                     activeClassName={classes.activeLink}>
                     <li className={classes.li}>
-                      <span className={classes.forceSize} forcesize={it.label}>
+                      <span className={classes.forceSize} data-forcesize={it.label}>
                         {it.label}
                       </span>
                     </li>

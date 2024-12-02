@@ -132,8 +132,9 @@ const Setup = ({ wizard, forceDisable }) => {
         ))}
       </THead>
       <TBody>
-        {namespaces.map(namespace => (
+        {namespaces.map((namespace, idx) => (
           <Row
+            key={idx}
             namespace={namespace.name}
             forceDisable={namespace.forceDisable}
             save={R.compose(rawSave(null), toNamespace(namespace.name))}

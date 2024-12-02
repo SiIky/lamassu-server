@@ -1,3 +1,4 @@
+import React from 'react'
 import { getCryptoCurrency } from '@lamassu/coins/lightUtils'
 import * as R from 'ramda'
 import * as Yup from 'yup'

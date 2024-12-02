@@ -34,13 +34,13 @@ const PREFILL = {
         name: 'has-code',
         message: 'The confirmation code is missing from the message!',
         exclusive: false,
-        test: value => value?.match(/#code/g || [])?.length > 0
+        test: value => value?.match(/#code/g)?.length > 0
       })
       .test({
         name: 'has-single-code',
         message: 'There should be a single confirmation code!',
         exclusive: false,
-        test: value => value?.match(/#code/g || [])?.length === 1
+        test: value => value?.match(/#code/g)?.length === 1
       })
   },
   cashOutDispenseReady: {
@@ -155,12 +155,13 @@ const SMSNoticesModal = ({
                   <Info2 noMargin>Values to attach</Info2>
                 )}
                 <div className={classes.chipButtons}>
-                  {R.map(
-                    it => (
-                      <div>
-                        {R.map(
-                          ite => (
+                  {R.splitEvery(3, CHIPS[sms?.event]).map(
+                    (it, idx) => (
+                      <div key={idx}>
+                        {it.map(
+                          (ite, idx2) => (
                             <Chip
+                              key={idx2}
                               label={ite.display}
                               size="small"
                               style={{ backgroundColor: zircon }}
@@ -176,12 +177,10 @@ const SMSNoticesModal = ({
                                 )
                               }}
                             />
-                          ),
-                          it
+                          )
                         )}
                       </div>
                     ),
-                    R.splitEvery(3, CHIPS[sms?.event])
                   )}
                 </div>
                 <div className={classes.footer}>
