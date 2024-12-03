@@ -29,12 +29,8 @@ const ScreenInformation = () => {
 }
 
 const validationSchema = Yup.object().shape({
-  screen2Title: Yup.string()
-    .label('Screen title')
-    .required(),
-  screen2Text: Yup.string()
-    .label('Screen text')
-    .required()
+  screen2Title: Yup.string().label('Screen title').required(),
+  screen2Text: Yup.string().label('Screen text').required()
 })
 
 const defaultValues = {

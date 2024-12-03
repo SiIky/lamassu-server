@@ -65,9 +65,8 @@ const IndividualDiscounts = () => {
   const { data: discountResponse, loading: discountLoading } = useQuery(
     GET_INDIVIDUAL_DISCOUNTS
   )
-  const { data: customerData, loading: customerLoading } = useQuery(
-    GET_CUSTOMERS
-  )
+  const { data: customerData, loading: customerLoading } =
+    useQuery(GET_CUSTOMERS)
 
   const [createDiscount, { error: creationError }] = useMutation(
     CREATE_DISCOUNT,

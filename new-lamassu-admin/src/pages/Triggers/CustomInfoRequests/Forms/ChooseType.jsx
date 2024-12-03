@@ -65,9 +65,7 @@ const ChooseType = () => {
 }
 
 const validationSchema = Yup.object().shape({
-  inputType: Yup.string()
-    .label('Input type')
-    .required()
+  inputType: Yup.string().label('Input type').required()
 })
 
 const defaultValues = {

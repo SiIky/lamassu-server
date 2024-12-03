@@ -79,9 +79,7 @@ const FiatBalanceOverrides = ({ config, section }) => {
   const percentMax = 100
   const validationSchema = Yup.object()
     .shape({
-      [MACHINE_KEY]: Yup.string()
-        .label('Machine')
-        .required(),
+      [MACHINE_KEY]: Yup.string().label('Machine').required(),
       [CASHBOX_KEY]: Yup.number()
         .label('Cash box')
         .transform(transformNumber)

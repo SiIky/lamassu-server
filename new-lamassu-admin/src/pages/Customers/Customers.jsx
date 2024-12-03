@@ -120,9 +120,8 @@ const Customers = () => {
     onCompleted: data => setFilteredCustomers(R.path(['customers'])(data))
   })
 
-  const { data: filtersResponse, loading: loadingFilters } = useQuery(
-    GET_CUSTOMER_FILTERS
-  )
+  const { data: filtersResponse, loading: loadingFilters } =
+    useQuery(GET_CUSTOMER_FILTERS)
 
   const [createNewCustomer] = useMutation(CREATE_CUSTOMER, {
     onCompleted: () => setShowCreationModal(false),

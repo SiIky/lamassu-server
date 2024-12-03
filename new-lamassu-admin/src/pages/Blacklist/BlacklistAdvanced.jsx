@@ -109,9 +109,7 @@ const BlacklistAdvanced = ({
 
   const validationSchema = Yup.object().shape({
     label: Yup.string().required('A label is required!'),
-    content: Yup.string()
-      .required('The message content is required!')
-      .trim()
+    content: Yup.string().required('The message content is required!').trim()
   })
 
   return (

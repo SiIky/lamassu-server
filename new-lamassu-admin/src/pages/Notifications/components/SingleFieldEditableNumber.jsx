@@ -33,14 +33,8 @@ const SingleFieldEditableNumber = ({
     setSaving(false)
   }
 
-  const {
-    save,
-    data,
-    currency,
-    isEditing,
-    isDisabled,
-    setEditing
-  } = useContext(NotificationsCtx)
+  const { save, data, currency, isEditing, isDisabled, setEditing } =
+    useContext(NotificationsCtx)
 
   const schema = Yup.object().shape({
     [name]: Yup.number()

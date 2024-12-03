@@ -26,7 +26,10 @@ const Sidebar = ({
       {loading && <P>Loading...</P>}
       {!loading &&
         data?.map((it, idx) => (
-          <div key={idx} className={classes.linkWrapper} onClick={() => onClick(it)}>
+          <div
+            key={idx}
+            className={classes.linkWrapper}
+            onClick={() => onClick(it)}>
             <div
               key={idx}
               className={classnames({

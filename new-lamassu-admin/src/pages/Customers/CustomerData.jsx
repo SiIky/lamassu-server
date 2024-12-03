@@ -89,8 +89,8 @@ const CustomerData = ({
   const sanctionsDisplay = !sanctionsAt
     ? 'Not checked yet'
     : sanctions
-    ? 'Passed'
-    : 'Failed'
+      ? 'Passed'
+      : 'Failed'
 
   const sortByName = R.sortBy(
     R.compose(R.toLower, R.path(['customInfoRequest', 'customRequest', 'name']))
@@ -263,9 +263,7 @@ const CustomerData = ({
             src={
               !R.isNil(previewPhoto)
                 ? URL.createObjectURL(previewPhoto)
-                : `/front-camera-photo/${R.path(['frontCameraPath'])(
-                    customer
-                  )}`
+                : `/front-camera-photo/${R.path(['frontCameraPath'])(customer)}`
             }
           />
         ) : null
@@ -304,9 +302,7 @@ const CustomerData = ({
             src={
               !R.isNil(previewCard)
                 ? URL.createObjectURL(previewCard)
-                : `/id-card-photo/${R.path(['idCardPhotoPath'])(
-                    customer
-                  )}`
+                : `/id-card-photo/${R.path(['idCardPhotoPath'])(customer)}`
             }
           />
         ) : null
@@ -386,44 +382,50 @@ const CustomerData = ({
     })
   }, customInfoRequests)
 
-  R.forEach(it => {
-    customFields.push({
-      fields: [
-        {
-          name: it.label,
-          label: it.label,
-          value: it.value ?? '',
-          component: TextInput,
-          editable: true
+  R.forEach(
+    it => {
+      customFields.push({
+        fields: [
+          {
+            name: it.label,
+            label: it.label,
+            value: it.value ?? '',
+            component: TextInput,
+            editable: true
+          }
+        ],
+        title: it.label,
+        titleIcon: <EditIcon className={classes.editIcon} />,
+        save: values => {
+          updateCustomEntry({
+            fieldId: it.id,
+            value: values[it.label]
+          })
+        },
+        deleteEditedData: () => {},
+        validationSchema: Yup.object().shape({
+          [it.label]: Yup.string()
+        }),
+        initialValues: {
+          [it.label]: it.value ?? ''
         }
-      ],
-      title: it.label,
-      titleIcon: <EditIcon className={classes.editIcon} />,
-      save: values => {
-        updateCustomEntry({
-          fieldId: it.id,
-          value: values[it.label]
-        })
-      },
-      deleteEditedData: () => {},
-      validationSchema: Yup.object().shape({
-        [it.label]: Yup.string()
-      }),
-      initialValues: {
-        [it.label]: it.value ?? ''
-      }
-    })
-  }, R.path(['customFields'])(customer) ?? [])
+      })
+    },
+    R.path(['customFields'])(customer) ?? []
+  )
 
-  R.forEach(it => {
-    initialValues.smsData[it] = smsData[it]
-    smsDataElements.push({
-      name: it,
-      label: onlyFirstToUpper(it),
-      component: TextInput,
-      editable: false
-    })
-  }, R.keys(smsData) ?? [])
+  R.forEach(
+    it => {
+      initialValues.smsData[it] = smsData[it]
+      smsDataElements.push({
+        name: it,
+        label: onlyFirstToUpper(it),
+        component: TextInput,
+        editable: false
+      })
+    },
+    R.keys(smsData) ?? []
+  )
 
   const externalCompliance = R.map(it => ({
     fields: [
@@ -492,7 +494,9 @@ const CustomerData = ({
         deleteEditedData={deleteEditedData}
         retrieveAdditionalData={retrieveAdditionalData}
         checkAgainstSanctions={checkAgainstSanctions}
-        editable={editable}>{children}</EditableCard>
+        editable={editable}>
+        {children}
+      </EditableCard>
     )
   }
 
@@ -509,7 +513,9 @@ const CustomerData = ({
         titleIcon={titleIcon}
         editable={false}
         hasImage={hasImage}
-        fields={fields}>{children}</EditableCard>
+        fields={fields}>
+        {children}
+      </EditableCard>
     )
   }
 
@@ -519,24 +525,25 @@ const CustomerData = ({
     <div>
       <div className={classes.header}>
         <H3 className={classes.title}>{'Customer data'}</H3>
-        {// TODO: Remove false condition for next release
-        // false && (
-        //   <>
-        //     <FeatureButton
-        //       active={!listView}
-        //       className={classes.viewIcons}
-        //       Icon={OverviewIcon}
-        //       InverseIcon={OverviewReversedIcon}
-        //       onClick={() => setListView(false)}
-        //     />
-        //     <FeatureButton
-        //       active={listView}
-        //       className={classes.viewIcons}
-        //       Icon={CustomerListViewIcon}
-        //       InverseIcon={CustomerListViewReversedIcon}
-        //       onClick={() => setListView(true)}></FeatureButton>
-        //   </>
-        // )
+        {
+          // TODO: Remove false condition for next release
+          // false && (
+          //   <>
+          //     <FeatureButton
+          //       active={!listView}
+          //       className={classes.viewIcons}
+          //       Icon={OverviewIcon}
+          //       InverseIcon={OverviewReversedIcon}
+          //       onClick={() => setListView(false)}
+          //     />
+          //     <FeatureButton
+          //       active={listView}
+          //       className={classes.viewIcons}
+          //       Icon={CustomerListViewIcon}
+          //       InverseIcon={CustomerListViewReversedIcon}
+          //       onClick={() => setListView(true)}></FeatureButton>
+          //   </>
+          // )
         }
       </div>
       <div>

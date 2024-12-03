@@ -38,9 +38,7 @@ const IdCardPhotoCard = memo(({ customerData, updateCustomer }) => {
         {customerData.idCardPhotoPath ? (
           <img
             className={classes.idCardPhoto}
-            src={`/id-card-photo/${R.path(['idCardPhotoPath'])(
-              customerData
-            )}`}
+            src={`/id-card-photo/${R.path(['idCardPhotoPath'])(customerData)}`}
             alt=""
           />
         ) : (

@@ -81,9 +81,8 @@ const Logs = () => {
 
   const deviceId = selected?.deviceId
 
-  const { data: machineResponse, loading: machinesLoading } = useQuery(
-    GET_MACHINES
-  )
+  const { data: machineResponse, loading: machinesLoading } =
+    useQuery(GET_MACHINES)
 
   const { data: configResponse, loading: configLoading } = useQuery(GET_DATA)
   const timezone = R.path(['config', 'locale_timezone'], configResponse)

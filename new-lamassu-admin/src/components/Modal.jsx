@@ -55,8 +55,8 @@ const styles = {
     margin: xl
       ? [[0, 0, 'auto', 'auto']]
       : small
-      ? [[12, 12, 'auto', 'auto']]
-      : [[16, 16, 'auto', 'auto']]
+        ? [[12, 12, 'auto', 'auto']]
+        : [[16, 16, 'auto', 'auto']]
   }),
   header: {
     display: 'flex'

@@ -36,9 +36,7 @@ const BlackListModal = ({ onClose, addToBlacklist, errorMsg }) => {
           address: ''
         }}
         validationSchema={Yup.object({
-          address: Yup.string()
-            .trim()
-            .required('An address is required')
+          address: Yup.string().trim().required('An address is required')
         })}
         onSubmit={({ address }) => {
           handleAddToBlacklist(address.trim())

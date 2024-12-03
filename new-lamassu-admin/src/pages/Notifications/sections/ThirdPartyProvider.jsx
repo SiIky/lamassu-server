@@ -11,9 +11,12 @@ import NotificationsCtx from '../NotificationsContext'
 const filterClass = type => R.filter(it => it.class === type)
 
 const ThirdPartyProvider = () => {
-  const { save, data: _data, error, accountsConfig } = useContext(
-    NotificationsCtx
-  )
+  const {
+    save,
+    data: _data,
+    error,
+    accountsConfig
+  } = useContext(NotificationsCtx)
 
   const data = fromNamespace('thirdParty')(_data)
 

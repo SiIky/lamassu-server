@@ -48,10 +48,7 @@ const GET_USER_DATA = gql`
 `
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .label('Email')
-    .required()
-    .email(),
+  email: Yup.string().label('Email').required().email(),
   password: Yup.string().required('Password field is required'),
   rememberMe: Yup.boolean()
 })

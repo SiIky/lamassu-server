@@ -36,10 +36,13 @@ const Graph = ({ data, machines, currency, selectedMachine }) => {
   const filledMachines =
     R.length(machines) >= AMOUNT_OF_MACHINES
       ? machinesClone
-      : R.map(it => {
-          if (!R.isNil(machinesClone[it])) return machinesClone[it]
-          return { code: `ghostMachine${it}`, display: `` }
-        }, R.times(R.identity, AMOUNT_OF_MACHINES))
+      : R.map(
+          it => {
+            if (!R.isNil(machinesClone[it])) return machinesClone[it]
+            return { code: `ghostMachine${it}`, display: `` }
+          },
+          R.times(R.identity, AMOUNT_OF_MACHINES)
+        )
 
   const txByDevice = R.reduce(
     (acc, value) => {
@@ -108,8 +111,9 @@ const Graph = ({ data, machines, currency, selectedMachine }) => {
             .axisBottom(x)
             .tickFormat(
               d =>
-                `${R.find(it => it.code === d[0], filledMachines).display ??
-                  ''}`
+                `${
+                  R.find(it => it.code === d[0], filledMachines).display ?? ''
+                }`
             )
             .tickSize(0)
             .tickPadding(10)
@@ -140,14 +144,14 @@ const Graph = ({ data, machines, currency, selectedMachine }) => {
   )
 
   const positionXAxisLabels = useCallback(() => {
-    d3.selectAll('.x-axis-1 .tick text').attr('transform', function(d) {
+    d3.selectAll('.x-axis-1 .tick text').attr('transform', function (d) {
       const widthPerEntry = (x.range()[1] - x.range()[0]) / AMOUNT_OF_MACHINES
       return `translate(${-widthPerEntry / 2.25 + this.getBBox().width / 2}, 0)`
     })
   }, [x])
 
   const positionXAxis2Labels = useCallback(() => {
-    d3.selectAll('.x-axis-2 .tick text').attr('transform', function(d) {
+    d3.selectAll('.x-axis-2 .tick text').attr('transform', function (d) {
       const widthPerEntry = (x.range()[1] - x.range()[0]) / AMOUNT_OF_MACHINES
       return `translate(${widthPerEntry / 2.25 - this.getBBox().width / 2}, 0)`
     })
@@ -295,9 +299,7 @@ const Graph = ({ data, machines, currency, selectedMachine }) => {
   ])
 
   useEffect(() => {
-    d3.select(ref.current)
-      .selectAll('*')
-      .remove()
+    d3.select(ref.current).selectAll('*').remove()
     drawChart()
   }, [drawChart])
 

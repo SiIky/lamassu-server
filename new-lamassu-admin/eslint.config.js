@@ -2,6 +2,7 @@ import globals from 'globals'
 import pluginJs from '@eslint/js'
 import pluginReact from 'eslint-plugin-react'
 import reactCompiler from 'eslint-plugin-react-compiler'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -17,7 +18,7 @@ export default [
     settings: {
       react: {
         version: '16'
-      },
+      }
     },
     plugins: {
       'react-compiler': reactCompiler
@@ -31,7 +32,8 @@ export default [
       'react/prop-types': 'off',
       'react/display-name': 'off',
       'react/no-unescaped-entities': 'off',
-      'react-compiler/react-compiler': 'warn',
+      'react-compiler/react-compiler': 'warn'
     }
-  }
+  },
+  eslintConfigPrettier
 ]

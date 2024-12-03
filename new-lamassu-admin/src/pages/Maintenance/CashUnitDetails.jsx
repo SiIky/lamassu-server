@@ -106,7 +106,7 @@ const CashUnitDetails = ({
       <div className={classes.billList}>
         <Label1>Cash box</Label1>
         {R.isEmpty(billCount) && <TL2 noMargin>Empty</TL2>}
-        {(R.keys(billCount)).map((it, idx) => (
+        {R.keys(billCount).map((it, idx) => (
           <span key={idx}>
             <TL2 noMargin>{billCount[it]}</TL2>
             <Chip label={`${it} ${currency}`} />
@@ -149,7 +149,7 @@ const CashUnitDetails = ({
                 noMargin
                 className={classes.label}>{`Loading boxes`}</Label1>
               <div className={classes.loadingBoxes}>
-                {(R.range(1, machine.numberOfCassettes + 1)).map((it, idx) => (
+                {R.range(1, machine.numberOfCassettes + 1).map((it, idx) => (
                   <CashOut
                     key={idx}
                     width={60}

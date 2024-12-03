@@ -108,14 +108,13 @@ const MachinesTable = ({ machines = [], numToRender }) => {
                 </div>
               </HeaderCell> */}
             {R.times(R.identity, maxNumberOfCassettes).map((it, idx) => (
-                <HeaderCell key={idx}>
-                  <div className={classes.header}>
-                    <TxOutIcon />
-                    <Label2 className={classes.label}> {it + 1}</Label2>
-                  </div>
-                </HeaderCell>
-              )
-            )}
+              <HeaderCell key={idx}>
+                <div className={classes.header}>
+                  <TxOutIcon />
+                  <Label2 className={classes.label}> {it + 1}</Label2>
+                </div>
+              </HeaderCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -142,18 +141,18 @@ const MachinesTable = ({ machines = [], numToRender }) => {
                     <Status status={machine.statuses[0]} />
                   </StyledCell>
                   {R.range(1, maxNumberOfCassettes + 1).map((it, idx) =>
-                      machine.numberOfCassettes >= it ? (
-                        <StyledCell key={idx} align="left">
-                          {makePercentageText(
-                            it,
-                            machine.cashUnits[`cassette${it}`]
-                          )}
-                        </StyledCell>
-                      ) : (
-                        <StyledCell key={idx} align="left">
-                          <TL2>{`— %`}</TL2>
-                        </StyledCell>
-                      )
+                    machine.numberOfCassettes >= it ? (
+                      <StyledCell key={idx} align="left">
+                        {makePercentageText(
+                          it,
+                          machine.cashUnits[`cassette${it}`]
+                        )}
+                      </StyledCell>
+                    ) : (
+                      <StyledCell key={idx} align="left">
+                        <TL2>{`— %`}</TL2>
+                      </StyledCell>
+                    )
                   )}
                 </TableRow>
               )

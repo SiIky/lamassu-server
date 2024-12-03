@@ -61,7 +61,7 @@ const DISABLE_SMS_NOTICE = gql`
 const multiReplace = (str, obj) => {
   var re = new RegExp(Object.keys(obj).join('|'), 'gi')
 
-  return str.replace(re, function(matched) {
+  return str.replace(re, function (matched) {
     return obj[matched.toLowerCase()]
   })
 }
@@ -82,7 +82,8 @@ const formatContent = content => {
 const TOOLTIPS = {
   smsCode: ``,
   cashOutDispenseReady: ``,
-  smsReceipt: formatContent(`The contents of this notice will be appended to the end of the SMS receipt sent, and not replace it.\n
+  smsReceipt:
+    formatContent(`The contents of this notice will be appended to the end of the SMS receipt sent, and not replace it.\n
   To edit the contents of the SMS receipt, please go to the 'Receipt' tab`)
 }
 
@@ -124,9 +125,8 @@ const SMSNotices = () => {
   const [previewCoords, setPreviewCoords] = useState({ x: 0, y: 0 })
   const [errorMsg, setErrorMsg] = useState('')
 
-  const { data: messagesData, loading: messagesLoading } = useQuery(
-    GET_SMS_NOTICES
-  )
+  const { data: messagesData, loading: messagesLoading } =
+    useQuery(GET_SMS_NOTICES)
 
   const timezone = R.path(['config', 'locale_timezone'])(messagesData)
 

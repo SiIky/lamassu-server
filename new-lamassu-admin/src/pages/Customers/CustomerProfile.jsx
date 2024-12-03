@@ -552,8 +552,8 @@ const CustomerProfile = memo(() => {
           {name.length
             ? name
             : email?.length
-            ? email
-            : getFormattedPhone(phone, locale.country)}
+              ? email
+              : getFormattedPhone(phone, locale.country)}
         </Label2>
       </Breadcrumbs>
       <div className={classes.panels}>

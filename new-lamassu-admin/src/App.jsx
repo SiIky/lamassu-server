@@ -115,15 +115,10 @@ const Main = () => {
       )}
       <main className={classes.wrapper}>
         {sidebar && !is404 && wizardTested && (
-          <Slide
-            direction="left"
-            in={true}
-            mountOnEnter
-            unmountOnExit
-          >
-              <div>
-                <TitleSection title={parent.title}></TitleSection>
-              </div>
+          <Slide direction="left" in={true} mountOnEnter unmountOnExit>
+            <div>
+              <TitleSection title={parent.title}></TitleSection>
+            </div>
           </Slide>
         )}
 

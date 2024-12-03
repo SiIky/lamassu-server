@@ -93,8 +93,8 @@ const PropertyCard = memo(
       state === OVERRIDE_PENDING
         ? { label: 'Pending', type: 'neutral' }
         : state === OVERRIDE_REJECTED
-        ? { label: 'Rejected', type: 'error' }
-        : { label: 'Accepted', type: 'success' }
+          ? { label: 'Rejected', type: 'error' }
+          : { label: 'Accepted', type: 'success' }
 
     return (
       <Paper

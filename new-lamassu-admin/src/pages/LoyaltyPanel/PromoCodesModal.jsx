@@ -21,14 +21,8 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object().shape({
-  code: Yup.string()
-    .required()
-    .trim()
-    .max(25),
-  discount: Yup.number()
-    .required()
-    .min(0)
-    .max(100)
+  code: Yup.string().required().trim().max(25),
+  discount: Yup.number().required().min(0).max(100)
 })
 
 const PromoCodesModal = ({ showModal, onClose, errorMsg, addCode }) => {

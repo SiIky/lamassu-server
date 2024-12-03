@@ -143,9 +143,9 @@ const getFormattedPhone = (phone, country) => {
 const getName = it => {
   const idData = R.path(['idCardData'])(it)
 
-  return `${R.path(['firstName'])(idData) ?? ''} ${R.path(['lastName'])(
-    idData
-  ) ?? ''}`.trim()
+  return `${R.path(['firstName'])(idData) ?? ''} ${
+    R.path(['lastName'])(idData) ?? ''
+  }`.trim()
 }
 
 // Manual Entry Wizard

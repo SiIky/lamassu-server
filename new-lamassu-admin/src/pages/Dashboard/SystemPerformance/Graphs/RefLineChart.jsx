@@ -126,10 +126,10 @@ const RefLineChart = ({
       ])
       .enter()
       .append('stop')
-      .attr('offset', function(d) {
+      .attr('offset', function (d) {
         return d.offset
       })
-      .attr('stop-color', function(d) {
+      .attr('stop-color', function (d) {
         return d.color
       })
 
@@ -152,20 +152,20 @@ const RefLineChart = ({
 
     const line = d3
       .line()
-      .x(function(d) {
+      .x(function (d) {
         return x(new Date(d.created))
       })
-      .y(function(d) {
+      .y(function (d) {
         return y(d.profit)
       })
 
     const area = d3
       .area()
-      .x(function(d) {
+      .x(function (d) {
         return x(new Date(d.created))
       })
       .y0(height)
-      .y1(function(d) {
+      .y1(function (d) {
         return y(d.profit)
       })
 
@@ -186,9 +186,7 @@ const RefLineChart = ({
 
   useEffect(() => {
     // first we clear old chart DOM elements on component update
-    d3.select(svgRef.current)
-      .selectAll('*')
-      .remove()
+    d3.select(svgRef.current).selectAll('*').remove()
     drawGraph()
   }, [drawGraph, realData])
 

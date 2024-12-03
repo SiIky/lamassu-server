@@ -132,14 +132,10 @@ const DetailsRow = ({ it: tx, timezone }) => {
     Number.parseFloat(tx.commissionPercentage, 2) * 100
   ).toFixed(2, 1) // ROUND_DOWN
   const fixedFee = Number.parseFloat(tx.fixedFee) || 0
-  const fiat = BigNumber(tx.fiat)
-    .minus(fixedFee)
-    .toFixed(2, 1) // ROUND_DOWN
+  const fiat = BigNumber(tx.fiat).minus(fixedFee).toFixed(2, 1) // ROUND_DOWN
   const crypto = getCryptoAmount(tx)
   const cryptoFee = tx.fee ? `${getCryptoFeeAmount(tx)} ${tx.fiatCode}` : 'N/A'
-  const exchangeRate = BigNumber(fiat)
-    .div(crypto)
-    .toFixed(2, 1) // ROUND_DOWN
+  const exchangeRate = BigNumber(fiat).div(crypto).toFixed(2, 1) // ROUND_DOWN
   const displayExRate = `1 ${tx.cryptoCode} = ${exchangeRate} ${tx.fiatCode}`
   const discount = tx.discount ? `-${tx.discount}%` : null
 
@@ -203,23 +199,22 @@ const DetailsRow = ({ it: tx, timezone }) => {
     <div className={classes.walletScore}>
       <svg width={103} height={10}>
         {R.range(0, 10).map((it, idx) => (
-            <circle
-              key={idx}
-              cx={it * 10 + 6}
-              cy={4}
-              r={3.5}
-              fill={
-                it < tx.walletScore
-                  ? !hasChainAnalysisError(tx)
-                    ? primaryColor
-                    : errorColor
-                  : !hasChainAnalysisError(tx)
+          <circle
+            key={idx}
+            cx={it * 10 + 6}
+            cy={4}
+            r={3.5}
+            fill={
+              it < tx.walletScore
+                ? !hasChainAnalysisError(tx)
+                  ? primaryColor
+                  : errorColor
+                : !hasChainAnalysisError(tx)
                   ? subheaderColor
                   : offErrorColor
-              }
-            />
-          )
-        )}
+            }
+          />
+        ))}
       </svg>
       <P
         noMargin

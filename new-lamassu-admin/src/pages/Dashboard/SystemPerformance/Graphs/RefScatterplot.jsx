@@ -211,12 +211,7 @@ const Graph = ({ data, timeFrame, timezone }) => {
           g
             .append('g')
             .selectAll('line')
-            .data(
-              d3
-                .axisLeft(y)
-                .scale()
-                .ticks(5)
-            )
+            .data(d3.axisLeft(y).scale().ticks(5))
             .join('line')
             .attr('y1', d => 0.5 + y(d))
             .attr('y2', d => 0.5 + y(d))
@@ -240,10 +235,7 @@ const Graph = ({ data, timeFrame, timezone }) => {
         )
         // Left side breakpoint label
         .call(g => {
-          const separator = d3
-            ?.select('.dateSeparator')
-            ?.node()
-            ?.getBBox()
+          const separator = d3?.select('.dateSeparator')?.node()?.getBBox()
 
           if (!separator) return
 
@@ -261,10 +253,7 @@ const Graph = ({ data, timeFrame, timezone }) => {
         })
         // Right side breakpoint label
         .call(g => {
-          const separator = d3
-            ?.select('.dateSeparator')
-            ?.node()
-            ?.getBBox()
+          const separator = d3?.select('.dateSeparator')?.node()?.getBBox()
 
           if (!separator) return
 
@@ -355,9 +344,7 @@ const Graph = ({ data, timeFrame, timezone }) => {
   ])
 
   useEffect(() => {
-    d3.select(ref.current)
-      .selectAll('*')
-      .remove()
+    d3.select(ref.current).selectAll('*').remove()
     drawChart()
   }, [drawChart])
 

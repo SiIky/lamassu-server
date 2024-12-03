@@ -325,10 +325,7 @@ const getOverridesSchema = (values, rawData, locale) => {
   const highestBill = R.isEmpty(bills) ? CURRENCY_MAX : Math.max(...bills)
 
   return Yup.object().shape({
-    machine: Yup.string()
-      .nullable()
-      .label('Machine')
-      .required(),
+    machine: Yup.string().nullable().label('Machine').required(),
     cryptoCurrencies: Yup.array()
       .test({
         test() {
@@ -474,13 +471,8 @@ const getListCommissionsSchema = locale => {
   const highestBill = R.isEmpty(bills) ? CURRENCY_MAX : Math.max(...bills)
 
   return Yup.object().shape({
-    machine: Yup.string()
-      .label('Machine')
-      .required(),
-    cryptoCurrencies: Yup.array()
-      .label('Crypto currency')
-      .required()
-      .min(1),
+    machine: Yup.string().label('Machine').required(),
+    cryptoCurrencies: Yup.array().label('Crypto currency').required().min(1),
     cashIn: Yup.number()
       .label('Cash-in')
       .min(percentMin)

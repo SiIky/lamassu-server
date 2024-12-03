@@ -134,8 +134,8 @@ const CustomInfoRequestsData = ({ data }) => {
     it.approved === null
       ? { label: 'Pending', type: 'neutral' }
       : it.approved === false
-      ? { label: 'Rejected', type: 'error' }
-      : { label: 'Accepted', type: 'success' }
+        ? { label: 'Rejected', type: 'error' }
+        : { label: 'Accepted', type: 'success' }
 
   return (
     <>

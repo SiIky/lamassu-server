@@ -57,7 +57,7 @@ const getElements = (
         return (
           <div className={classes.unitsRow}>
             <div className={classes.units}>
-              {(R.range(1, m.numberOfCassettes + 1)).map((it, idx) => (
+              {R.range(1, m.numberOfCassettes + 1).map((it, idx) => (
                 <CashOutLite
                   key={idx}
                   width={'100%'}

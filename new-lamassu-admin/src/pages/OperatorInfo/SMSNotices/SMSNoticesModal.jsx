@@ -44,9 +44,7 @@ const PREFILL = {
       })
   },
   cashOutDispenseReady: {
-    validator: Yup.string()
-      .required('The message content is required!')
-      .trim()
+    validator: Yup.string().required('The message content is required!').trim()
   },
   smsReceipt: {
     validator: Yup.string().trim()
@@ -89,9 +87,7 @@ const SMSNoticesModal = ({
     event: Yup.string().required('An event is required!'),
     message:
       PREFILL[sms?.event]?.validator ??
-      Yup.string()
-        .required('The message content is required!')
-        .trim()
+      Yup.string().required('The message content is required!').trim()
   })
 
   const handleSubmit = values => {
@@ -155,33 +151,29 @@ const SMSNoticesModal = ({
                   <Info2 noMargin>Values to attach</Info2>
                 )}
                 <div className={classes.chipButtons}>
-                  {R.splitEvery(3, CHIPS[sms?.event]).map(
-                    (it, idx) => (
-                      <div key={idx}>
-                        {it.map(
-                          (ite, idx2) => (
-                            <Chip
-                              key={idx2}
-                              label={ite.display}
-                              size="small"
-                              style={{ backgroundColor: zircon }}
-                              disabled={R.includes(ite.code, values.message)}
-                              className={classes.chip}
-                              onClick={() => {
-                                setFieldValue(
-                                  'message',
-                                  values.message.concat(
-                                    R.last(values.message) === ' ' ? '' : ' ',
-                                    ite.code
-                                  )
-                                )
-                              }}
-                            />
-                          )
-                        )}
-                      </div>
-                    ),
-                  )}
+                  {R.splitEvery(3, CHIPS[sms?.event]).map((it, idx) => (
+                    <div key={idx}>
+                      {it.map((ite, idx2) => (
+                        <Chip
+                          key={idx2}
+                          label={ite.display}
+                          size="small"
+                          style={{ backgroundColor: zircon }}
+                          disabled={R.includes(ite.code, values.message)}
+                          className={classes.chip}
+                          onClick={() => {
+                            setFieldValue(
+                              'message',
+                              values.message.concat(
+                                R.last(values.message) === ' ' ? '' : ' ',
+                                ite.code
+                              )
+                            )
+                          }}
+                        />
+                      ))}
+                    </div>
+                  ))}
                 </div>
                 <div className={classes.footer}>
                   {getErrorMsg(errors, touched, creationError) && (

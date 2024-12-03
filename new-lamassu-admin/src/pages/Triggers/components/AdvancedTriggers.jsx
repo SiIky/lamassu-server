@@ -45,9 +45,8 @@ const AdvancedTriggersSettings = memo(() => {
   const [isEditingOverrides, setEditingOverrides] = useState(false)
 
   const { data, loading: configLoading } = useQuery(GET_INFO)
-  const { data: customInfoReqData, loading: customInfoLoading } = useQuery(
-    GET_CUSTOM_REQUESTS
-  )
+  const { data: customInfoReqData, loading: customInfoLoading } =
+    useQuery(GET_CUSTOM_REQUESTS)
 
   const customInfoRequests =
     R.path(['customInfoRequests'])(customInfoReqData) ?? []

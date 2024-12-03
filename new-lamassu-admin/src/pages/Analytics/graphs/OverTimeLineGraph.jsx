@@ -455,10 +455,7 @@ const Graph = ({
         )
         // Left side breakpoint label
         .call(g => {
-          const separator = d3
-            ?.select('.dateSeparator')
-            ?.node()
-            ?.getBBox()
+          const separator = d3?.select('.dateSeparator')?.node()?.getBBox()
 
           if (!separator) return
 
@@ -479,10 +476,7 @@ const Graph = ({
         })
         // Right side breakpoint label
         .call(g => {
-          const separator = d3
-            ?.select('.dateSeparator')
-            ?.node()
-            ?.getBBox()
+          const separator = d3?.select('.dateSeparator')?.node()?.getBBox()
 
           if (!separator) return
 
@@ -636,9 +630,7 @@ const Graph = ({
   ])
 
   useEffect(() => {
-    d3.select(ref.current)
-      .selectAll('*')
-      .remove()
+    d3.select(ref.current).selectAll('*').remove()
     drawChart()
   }, [drawChart])
 

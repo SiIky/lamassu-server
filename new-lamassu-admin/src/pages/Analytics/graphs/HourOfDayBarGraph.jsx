@@ -50,7 +50,6 @@ const Graph = ({
 
     const step = R.clone(start)
 
-     
     while (step <= end) {
       ticks.push(R.clone(step))
       step.setUTCHours(step.getUTCHours() + interval)
@@ -105,19 +104,25 @@ const Graph = ({
     ])
     .rangeRound([GRAPH_MARGIN.left, GRAPH_WIDTH - GRAPH_MARGIN.right])
 
-  const groupedByDateInterval = R.map(it => {
-    const lowerBound = R.clone(it)
-    it.setUTCHours(it.getUTCHours() + 2)
-    const upperBound = R.clone(it)
-    return [lowerBound, filterByHourInterval(lowerBound, upperBound)]
-  }, R.init(getTickIntervals(x.domain(), 2)))
+  const groupedByDateInterval = R.map(
+    it => {
+      const lowerBound = R.clone(it)
+      it.setUTCHours(it.getUTCHours() + 2)
+      const upperBound = R.clone(it)
+      return [lowerBound, filterByHourInterval(lowerBound, upperBound)]
+    },
+    R.init(getTickIntervals(x.domain(), 2))
+  )
 
-  const groupedByTxClass = R.map(it => {
-    const lowerBound = R.clone(it)
-    it.setUTCHours(it.getUTCHours() + 2)
-    const upperBound = R.clone(it)
-    return [lowerBound, txClassByHourInterval(lowerBound, upperBound)]
-  }, R.init(getTickIntervals(x.domain(), 2)))
+  const groupedByTxClass = R.map(
+    it => {
+      const lowerBound = R.clone(it)
+      it.setUTCHours(it.getUTCHours() + 2)
+      const upperBound = R.clone(it)
+      return [lowerBound, txClassByHourInterval(lowerBound, upperBound)]
+    },
+    R.init(getTickIntervals(x.domain(), 2))
+  )
 
   const y = d3
     .scaleLinear()
@@ -416,9 +421,7 @@ const Graph = ({
   ])
 
   useEffect(() => {
-    d3.select(ref.current)
-      .selectAll('*')
-      .remove()
+    d3.select(ref.current).selectAll('*').remove()
     drawChart()
   }, [drawChart])
 

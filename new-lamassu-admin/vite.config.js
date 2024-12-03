@@ -7,6 +7,9 @@ import fixReactVirtualized from 'esbuild-plugin-react-virtualized'
 
 export default defineConfig({
   base: '/',
+  build: {
+    outDir: 'build'
+  },
   server: {
     port: 3001,
     proxy: {
@@ -19,18 +22,13 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
-      plugins: [
-        fixReactVirtualized,
-      ],
+      plugins: [fixReactVirtualized]
     }
   },
-  plugins: [
-    react(),
-    svgr(),
-  ],
+  plugins: [react(), svgr()],
   resolve: {
     alias: {
-      'src': fileURLToPath(new URL('./src', import.meta.url))
-    },
-  },
+      src: fileURLToPath(new URL('./src', import.meta.url))
+    }
+  }
 })

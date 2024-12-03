@@ -182,10 +182,8 @@ const WizardStep = ({
 
   const numberOfCassettes = machine.numberOfCassettes
   const numberOfRecyclers = machine.numberOfRecyclers
-  const {
-    name: cashUnitField,
-    category: cashUnitCategory
-  } = getCashUnitFieldName(step, numberOfCassettes, numberOfRecyclers)
+  const { name: cashUnitField, category: cashUnitCategory } =
+    getCashUnitFieldName(step, numberOfCassettes, numberOfRecyclers)
   const originalCashUnitCount = machine?.cashUnits?.[cashUnitField]
   const cashUnitDenomination = cashoutSettings?.[cashUnitField]
 
@@ -317,8 +315,8 @@ const WizardStep = ({
                           {cashUnitCategory === 'cassette'
                             ? `dispenser`
                             : cashUnitCategory === 'recycler'
-                            ? `recycler`
-                            : ``}
+                              ? `recycler`
+                              : ``}
                           )
                         </H4>
                       </div>

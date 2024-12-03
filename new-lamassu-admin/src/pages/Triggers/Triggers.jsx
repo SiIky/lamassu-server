@@ -65,9 +65,8 @@ const Triggers = () => {
   const classes = useStyles()
   const [wizardType, setWizard] = useState(false)
   const { data, loading: configLoading, refetch } = useQuery(GET_CONFIG)
-  const { data: customInfoReqData, loading: customInfoLoading } = useQuery(
-    GET_CUSTOM_REQUESTS
-  )
+  const { data: customInfoReqData, loading: customInfoLoading } =
+    useQuery(GET_CUSTOM_REQUESTS)
   const [error, setError] = useState(null)
   const [subMenu, setSubMenu] = useState(false)
 

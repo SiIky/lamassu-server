@@ -20,11 +20,7 @@ const splitOnUpper = R.compose(
   R.replace(/([A-Z])/g, ' $1'),
   toFirstLower
 )
-const startCase = R.compose(
-  R.join(' '),
-  R.map(onlyFirstToUpper),
-  splitOnUpper
-)
+const startCase = R.compose(R.join(' '), R.map(onlyFirstToUpper), splitOnUpper)
 
 const sentenceCase = R.compose(onlyFirstToUpper, R.join(' '), splitOnUpper)
 

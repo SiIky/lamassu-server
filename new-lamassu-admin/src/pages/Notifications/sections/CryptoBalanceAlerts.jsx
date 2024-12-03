@@ -14,14 +14,8 @@ const useStyles = makeStyles(styles)
 const CryptoBalanceAlerts = ({ section, fieldWidth }) => {
   const classes = useStyles()
 
-  const {
-    data,
-    save,
-    currency,
-    setEditing,
-    isEditing,
-    isDisabled
-  } = useContext(NotificationsCtx)
+  const { data, save, currency, setEditing, isEditing, isDisabled } =
+    useContext(NotificationsCtx)
 
   return (
     <div className={classes.cryptoBalanceAlerts}>

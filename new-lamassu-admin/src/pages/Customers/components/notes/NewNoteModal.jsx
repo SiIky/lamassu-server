@@ -18,10 +18,7 @@ const initialValues = {
 }
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string()
-    .required()
-    .trim()
-    .max(25),
+  title: Yup.string().required().trim().max(25),
   content: Yup.string().required()
 })
 

@@ -59,8 +59,8 @@ const CustomerDetails = memo(({ customer, photosData, locale, timezone }) => {
             {name.length
               ? name
               : email?.length
-              ? email
-              : getFormattedPhone(phone, locale.country)}
+                ? email
+                : getFormattedPhone(phone, locale.country)}
           </H2>
         </div>
         <Box display="flex" mt="auto">

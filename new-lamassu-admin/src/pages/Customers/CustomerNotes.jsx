@@ -59,15 +59,14 @@ const CustomerNotes = ({
         <div className={classes.notesChipList}>
           <NewNoteCard setOpenModal={setOpenModal} />
           {customerNotes.map((it, idx) => (
-              <NoteCard
-                key={idx}
-                note={it}
-                deleteNote={deleteNote}
-                handleClick={setEditing}
-                timezone={timezone}
-              />
-            )
-          )}
+            <NoteCard
+              key={idx}
+              note={it}
+              deleteNote={deleteNote}
+              handleClick={setEditing}
+              timezone={timezone}
+            />
+          ))}
         </div>
       )}
       {!R.isNil(editing) && (

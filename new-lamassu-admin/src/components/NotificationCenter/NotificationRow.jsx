@@ -60,8 +60,8 @@ const NotificationRow = ({
     typeDisplay && deviceName
       ? `${typeDisplay} - ${deviceName}`
       : !typeDisplay && deviceName
-      ? `${deviceName}`
-      : `${typeDisplay}`
+        ? `${deviceName}`
+        : `${typeDisplay}`
 
   const iconClass = {
     [classes.readIcon]: read,

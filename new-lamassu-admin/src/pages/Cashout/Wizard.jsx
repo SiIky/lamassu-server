@@ -83,63 +83,43 @@ const Wizard = ({ machine, locale, onClose, save, error }) => {
       cassette1:
         machine.numberOfCassettes >= 1 && step >= 1
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       cassette2:
         machine.numberOfCassettes >= 2 && step >= 2
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       cassette3:
         machine.numberOfCassettes >= 3 && step >= 3
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       cassette4:
         machine.numberOfCassettes >= 4 && step >= 4
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler1:
         machine.numberOfRecyclers >= 1 && step >= machine.numberOfCassettes + 1
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler2:
         machine.numberOfRecyclers >= 2 && step >= machine.numberOfCassettes + 2
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler3:
         machine.numberOfRecyclers >= 3 && step >= machine.numberOfCassettes + 3
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler4:
         machine.numberOfRecyclers >= 4 && step >= machine.numberOfCassettes + 4
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler5:
         machine.numberOfRecyclers >= 5 && step >= machine.numberOfCassettes + 5
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable(),
+          : Yup.number().transform(transformNumber).nullable(),
       recycler6:
         machine.numberOfRecyclers >= 6 && step >= machine.numberOfCassettes + 6
           ? Yup.number().required()
-          : Yup.number()
-              .transform(transformNumber)
-              .nullable()
+          : Yup.number().transform(transformNumber).nullable()
     })
 
   return (

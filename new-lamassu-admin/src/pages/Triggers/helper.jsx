@@ -110,9 +110,7 @@ const threshold = Yup.object().shape({
 
 const requirement = Yup.object().shape({
   requirement: Yup.string().required(),
-  suspensionDays: Yup.number()
-    .transform(transformNumber)
-    .nullable()
+  suspensionDays: Yup.number().transform(transformNumber).nullable()
 })
 
 const Schema = Yup.object()
@@ -266,12 +264,8 @@ const typeSchema = Yup.object()
       'The trigger type is required'
     ),
     threshold: Yup.object({
-      threshold: Yup.number()
-        .transform(transformNumber)
-        .nullable(),
-      thresholdDays: Yup.number()
-        .transform(transformNumber)
-        .nullable()
+      threshold: Yup.number().transform(transformNumber).nullable(),
+      thresholdDays: Yup.number().transform(transformNumber).nullable()
     })
   })
   .test(({ threshold, triggerType }, context) => {
@@ -327,13 +321,8 @@ const typeOptions = [
 
 const Type = ({ ...props }) => {
   const classes = useStyles()
-  const {
-    errors,
-    touched,
-    values,
-    setTouched,
-    handleChange
-  } = useFormikContext()
+  const { errors, touched, values, setTouched, handleChange } =
+    useFormikContext()
 
   const typeClass = {
     [classes.error]: errors.triggerType && touched.triggerType
@@ -484,24 +473,16 @@ const requirementSchema = Yup.object()
       requirement: Yup.string().required(),
       suspensionDays: Yup.number().when('requirement', {
         is: value => value === 'suspend',
-        then: schema => schema
-          .nullable()
-          .transform(transformNumber),
-        otherwise: schema => schema
-          .nullable()
-          .transform(() => null)
+        then: schema => schema.nullable().transform(transformNumber),
+        otherwise: schema => schema.nullable().transform(() => null)
       }),
       customInfoRequestId: Yup.string().when('requirement', {
         is: value => value !== 'custom',
-        then: schema => schema
-          .nullable()
-          .transform(() => '')
+        then: schema => schema.nullable().transform(() => '')
       }),
       externalService: Yup.string().when('requirement', {
         is: value => value !== 'external',
-        then: schema => schema
-          .nullable()
-          .transform(() => '')
+        then: schema => schema.nullable().transform(() => '')
       })
     }).required()
   })
@@ -583,13 +564,8 @@ const Requirement = ({
   customInfoRequests = []
 }) => {
   const classes = useStyles()
-  const {
-    touched,
-    errors,
-    values,
-    handleChange,
-    setTouched
-  } = useFormikContext()
+  const { touched, errors, values, handleChange, setTouched } =
+    useFormikContext()
 
   const isSuspend = values?.requirement?.requirement === 'suspend'
   const isCustom = values?.requirement?.requirement === 'custom'
@@ -766,9 +742,9 @@ const RequirementInput = ({ customInfoRequests = [] }) => {
     R.path(['requirement', 'customInfoRequestId'])(values) ?? ''
   const isSuspend = requirement === 'suspend'
   const display = customRequestId
-    ? R.path(['customRequest', 'name'])(
+    ? (R.path(['customRequest', 'name'])(
         R.find(customReqIdMatches(customRequestId))(customInfoRequests)
-      ) ?? ''
+      ) ?? '')
     : getView(requirementOptions, 'display')(requirement)
 
   return (
@@ -798,12 +774,12 @@ const RequirementView = ({
   const classes = useStyles()
   const display =
     requirement === 'custom'
-      ? R.path(['customRequest', 'name'])(
+      ? (R.path(['customRequest', 'name'])(
           R.find(customReqIdMatches(customInfoRequestId))(customInfoRequests)
-        ) ?? ''
+        ) ?? '')
       : requirement === 'external'
-      ? `External verification (${onlyFirstToUpper(externalService)})`
-      : getView(requirementOptions, 'display')(requirement)
+        ? `External verification (${onlyFirstToUpper(externalService)})`
+        : getView(requirementOptions, 'display')(requirement)
   const isSuspend = requirement === 'suspend'
   return (
     <Box display="flex" alignItems="baseline">
