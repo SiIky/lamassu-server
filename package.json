@@ -113,6 +113,7 @@
     "lamassu-ofac-update": "./bin/lamassu-ofac-update",
     "lamassu-send-coins": "./bin/lamassu-send-coins",
     "lamassu-update-to-mnemonic": "./bin/lamassu-update-to-mnemonic",
+    "lamassu-btc-bumpfee": "./bin/lamassu-btc-bumpfee",
     "lamassu-update-wallet-nodes": "./bin/lamassu-update-wallet-nodes",
     "lamassu-configure-frontcamera": "./bin/lamassu-configure-frontcamera",
     "lamassu-ofac-update-sources": "./bin/lamassu-ofac-update-sources",

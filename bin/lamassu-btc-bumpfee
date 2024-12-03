@@ -21,7 +21,7 @@ const bumpTransactionFee = async (txId) => {
 
   console.log(`Current fee: ${satPerVb.toFixed(2).toString()} sat/vB`)
 
-  const recommendedFees = mempool.getSatBEstimateFees()
+  const recommendedFees = await mempool.getSatBEstimateFees()
 
   console.log('Recommended fees (sat/vB):', recommendedFees)
 
@@ -31,14 +31,17 @@ const bumpTransactionFee = async (txId) => {
       name: 'selectedFee',
       message: 'Select a fee higher than the current one:',
       choices: Object.entries(recommendedFees)
-        .filter(([_, value]) => satPerVb.gt(value))
+        .filter(([_, value]) => satPerVb.lt(value))
         .map(([key, value]) => ({name: `${key}: ${value} sat/vB`, value})),
     },
   ])
 
-  await bitcoind.fetch('bumpfee', [txId, {fee_rate: selectedFee}])
+  const { txid } = await bitcoind.fetch('bumpfee', [txId, {fee_rate: selectedFee}])
 
-  console.log(`Fee bumped to ${selectedFee.toFixed(2)} sat/vB`)
+  console.log(`
+Fee bumped to ${selectedFee.toFixed(2)} sat/vB
+Transaction ID: ${txid}
+`)
 }
 
 bumpTransactionFee(txId)
