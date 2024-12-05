@@ -39,12 +39,7 @@ const getValidationSchema = countryCodes =>
       .required('A phone number is required')
       .test('is-valid-number', 'That is not a valid phone number', value => {
         try {
-          const validMap = R.map(it => {
-            const number = parsePhoneNumberWithError(value, it)
-            return number.isValid()
-          }, countryCodes)
-
-          return R.any(it => it === true, validMap)
+          return countryCodes.some(countryCode => parsePhoneNumberWithError(value, countryCode).isValid())
         } catch (e) {
           return false
         }

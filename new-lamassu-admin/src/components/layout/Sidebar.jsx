@@ -31,7 +31,6 @@ const Sidebar = ({
             className={classes.linkWrapper}
             onClick={() => onClick(it)}>
             <div
-              key={idx}
               className={classnames({
                 [classes.activeLink]: isSelected(it),
                 [classes.customRenderActiveLink]: itemRender && isSelected(it),
