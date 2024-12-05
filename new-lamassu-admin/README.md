@@ -8,11 +8,6 @@ The configuration for vscode is already on the repo, all you need to do is insta
 This project has a husky pre commit hook to format the staged changes using our styleguide.
 To take advantage of that make sure to run `git commit` from within this folder.
 
-
-```
-REACT_APP_TYPE_CHECK_SANCTUARY=true
-```
-
 ## Available Scripts
 
 In the project directory, you can run:
